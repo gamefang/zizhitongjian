@@ -10,8 +10,6 @@
 
 ## 專項研究
 ### 各國世系圖表
-- 秦國
-    - [世系表](https://github.com/gamefang/zizhitongjian/tree/master/專項/各國世系圖表/秦國世系圖.csv)
-    - [世系圖](專項/各國世系圖表/秦國世系圖.html)
+- [秦國世系圖](專項/各國世系圖表/秦國世系圖.html)
 
 ## 讀書筆記
