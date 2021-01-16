@@ -5,8 +5,10 @@
 ## 主要數據
 - [人物總表](https://github.com/gamefang/zizhitongjian/blob/master/%E4%BA%BA%E7%89%A9%E7%B8%BD%E8%A1%A8.csv)
     - [字段說明](字段說明.html)
-- [政權年代表](https://github.com/gamefang/zizhitongjian/blob/master/%E6%94%BF%E6%AC%8A%E5%B9%B4%E4%BB%A3%E8%A1%A8.csv)
 - [通鑒目錄](https://github.com/gamefang/zizhitongjian/blob/master/%E9%80%9A%E9%91%92%E7%9B%AE%E9%8C%84.csv)
+- 政權年代表
+    - [戰國秦](https://github.com/gamefang/zizhitongjian/blob/master/政權年代表/戰國秦.csv)
+    - [漢](https://github.com/gamefang/zizhitongjian/blob/master/政權年代表/漢.csv)
 
 ## 專項研究
 
