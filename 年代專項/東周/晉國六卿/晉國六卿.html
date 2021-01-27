@@ -1,0 +1,699 @@
+<!DOCTYPE html><html><head>
+      <title>&#x6649;&#x570B;&#x516D;&#x537F;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      
+      
+
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.1.0/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E6%99%8B%E5%9B%BD%E4%B8%89%E5%86%9B%E5%85%AD%E5%8D%BF">&#x664B;&#x56FD;&#x4E09;&#x519B;&#x516D;&#x537F;</h2>
+
+<ul>
+<li>&#x6982;&#x5FF5;&#xFF1A;BC633&#x5E74;&#xFF0C;&#x88AB;&#x5E90;&#x4E4B;&#x8490;&#xFF0C;&#x664B;&#x6587;&#x516C;&#x5EFA;&#x7ACB;&#x7684;&#x4E09;&#x519B;&#x5C06;&#x4F50;&#x5236;&#x5EA6;&#x3002;</li>
+<li>&#x5206;&#x7C7B;&#xFF1A;&#x4E2D;&#x519B;&#x5C06;&#x3001;&#x4E2D;&#x519B;&#x4F50;&#x3001;&#x4E0A;&#x519B;&#x5C06;&#x3001;&#x4E0A;&#x519B;&#x4F50;&#x3001;&#x4E0B;&#x519B;&#x5C06;&#x3001;&#x4E0B;&#x519B;&#x4F50;&#x3002;&#x4E2D;&#x519B;&#x5C06;&#x4E3A;&#x6B63;&#x537F;&#x3002;</li>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x516D;&#x537F;&#x4E16;&#x88AD;&#xFF0C;&#x51FA;&#x5C06;&#x5165;&#x76F8;&#xFF0C;&#x957F;&#x901D;&#x6B21;&#x8865;&#x3002;</li>
+<li>&#x6CBF;&#x9769;&#xFF1A;&#x4E09;&#x519B;&#x516D;&#x537F;&#x5236;&#x5EA6;&#x4E24;&#x5EA6;&#x6269;&#x5145;&#x4E0E;&#x6062;&#x590D;&#xFF0C;&#x81F3;BC550&#x5E74;&#x683E;&#x6C0F;&#x4E4B;&#x4E71;&#x540E;&#xFF0C;&#x516D;&#x537F;&#x5F52;&#x4E8E;&#x516D;&#x5927;&#x5BB6;&#x65CF;&#x3002;BC493&#x94C1;&#x4E4B;&#x6218;&#xFF0C;&#x706D;&#x8303;&#x6C0F;&#x3001;&#x4E2D;&#x884C;&#x6C0F;&#xFF0C;&#x4E3A;&#x56DB;&#x537F;&#x3002;BC453&#x664B;&#x9633;&#x4E4B;&#x6218;&#xFF0C;&#x706D;&#x667A;&#x6C0F;&#xFF0C;&#x4E3A;&#x97E9;&#x8D75;&#x9B4F;&#x4E09;&#x5BB6;&#x5206;&#x664B;&#x3002;</li>
+</ul>
+<h3 class="mume-header" id="%E5%8D%81%E4%B8%80%E4%B8%96%E6%97%8F">&#x5341;&#x4E00;&#x4E16;&#x65CF;</h3>
+
+<ul>
+<li>&#x5341;&#x4E00;&#x4E16;&#x65CF;&#x628A;&#x6301;&#x664B;&#x56FD;&#x516D;&#x537F;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;&#x72D0;&#x6C0F;&#x3001;&#x5148;&#x6C0F;&#x3001;&#x90E4;&#x6C0F;&#x3001;&#x80E5;&#x6C0F;&#x3001;&#x683E;&#x6C0F;&#x3001;&#x8303;&#x6C0F;&#x3001;&#x4E2D;&#x884C;&#x6C0F;&#x3001;&#x667A;&#x6C0F;&#x3001;&#x97E9;&#x6C0F;&#x3001;&#x8D75;&#x6C0F;&#x3001;&#x9B4F;&#x6C0F;&#x3002;</li>
+</ul>
+<h4 class="mume-header" id="%E6%99%8B%E5%9B%BD%E5%8E%86%E4%BB%A3%E5%B0%86%E4%BD%90%E8%A1%A8">&#x664B;&#x56FD;&#x5386;&#x4EE3;&#x5C06;&#x4F50;&#x8868;</h4>
+
+<table>
+<thead>
+<tr>
+<th>&#x72D0;&#x6C0F;</th>
+<th>&#x5148;&#x6C0F;</th>
+<th>&#x90E4;&#x6C0F;</th>
+<th>&#x80E5;&#x6C0F;</th>
+<th>&#x683E;&#x6C0F;</th>
+<th>&#x97E9;&#x6C0F;</th>
+<th>&#x4E2D;&#x884C;&#x6C0F;</th>
+<th>&#x667A;&#x6C0F;</th>
+<th>&#x9B4F;&#x6C0F;</th>
+<th>&#x8303;&#x6C0F;</th>
+<th>&#x8D75;&#x6C0F;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x72D0;&#x6BDB;</td>
+<td>&#x5148;&#x8F78;</td>
+<td>&#x90E4;&#x6996;</td>
+<td>&#x80E5;&#x81E3;</td>
+<td>&#x683E;&#x679D;</td>
+<td>&#x97E9;&#x53A5;</td>
+<td>&#x8340;&#x6797;&#x7236;</td>
+<td>&#x8340;&#x9996;</td>
+<td>&#x9B4F;&#x76F8;</td>
+<td>&#x8303;&#x4F1A;</td>
+<td>&#x8D75;&#x8870;</td>
+</tr>
+<tr>
+<td>&#x72D0;&#x5043;</td>
+<td>&#x5148;&#x4E14;&#x5C45;</td>
+<td>&#x90E4;&#x6EB1;</td>
+<td>&#x80E5;&#x5A74;</td>
+<td>&#x683E;&#x76FE;</td>
+<td>&#x97E9;&#x7A7F;</td>
+<td>&#x8340;&#x5E9A;</td>
+<td>&#x667A;&#x7F43;</td>
+<td>&#x9B4F;&#x9889;</td>
+<td>&#x8303;&#x71EE;</td>
+<td>&#x8D75;&#x76FE;</td>
+</tr>
+<tr>
+<td>&#x72D0;&#x5C04;&#x59D1;</td>
+<td>&#x5148;&#x90FD;</td>
+<td>&#x90E4;&#x7F3A;</td>
+<td>&#x80E5;&#x7532;</td>
+<td>&#x683E;&#x4E66;</td>
+<td>&#x97E9;&#x8D77;</td>
+<td>&#x4E2D;&#x884C;&#x5043;</td>
+<td>&#x667A;&#x76C8;</td>
+<td>&#x9B4F;&#x7EDB;</td>
+<td>&#x8303;&#x6714;</td>
+<td>&#x8D75;&#x6714;</td>
+</tr>
+<tr>
+<td></td>
+<td>&#x5148;&#x8511;</td>
+<td>&#x90E4;&#x514B;</td>
+<td>&#x80E5;&#x514B;</td>
+<td>&#x683E;&#x9EE1;</td>
+<td>&#x97E9;&#x987B;</td>
+<td>&#x4E2D;&#x884C;&#x5434;</td>
+<td>&#x667A;&#x8DDE;</td>
+<td>&#x9B4F;&#x8212;</td>
+<td>&#x8303;&#x5304;</td>
+<td>&#x8D75;&#x540C;</td>
+</tr>
+<tr>
+<td></td>
+<td>&#x5148;&#x514B;</td>
+<td>&#x90E4;&#x951C;</td>
+<td></td>
+<td>&#x683E;&#x76C8;</td>
+<td>&#x97E9;&#x4E0D;&#x4FE1;</td>
+<td>&#x4E2D;&#x884C;&#x5BC5;</td>
+<td>&#x667A;&#x7533;</td>
+<td>&#x9B4F;&#x53D6;</td>
+<td>&#x8303;&#x9C82;</td>
+<td>&#x8D75;&#x62EC;</td>
+</tr>
+<tr>
+<td></td>
+<td>&#x5148;&#x6996;</td>
+<td>&#x90E4;&#x81F3;</td>
+<td></td>
+<td></td>
+<td>&#x97E9;&#x5E9A;</td>
+<td></td>
+<td>&#x667A;&#x7476;</td>
+<td>&#x9B4F;&#x4F88;</td>
+<td>&#x8303;&#x9785;</td>
+<td>&#x8D75;&#x65C3;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>&#x90E4;&#x72A8;</td>
+<td></td>
+<td></td>
+<td>&#x97E9;&#x864E;</td>
+<td></td>
+<td></td>
+<td>&#x9B4F;&#x9A79;</td>
+<td>&#x8303;&#x5409;&#x5C04;</td>
+<td>&#x8D75;&#x6B66;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>&#x8D75;&#x6210;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>&#x8D75;&#x9785;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>&#x8D75;&#x65E0;&#x6064;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>&#x5176;&#x4ED6;&#x537F;&#x58EB;&#xFF1A;&#x81FE;&#x9A88;&#x3001;&#x7B95;&#x90D1;&#x7236;&#x3001;&#x5C60;&#x51FB;</li>
+<li>&#x8340;&#x6C0F;&#x522B;&#x65CF;&#xFF1A;&#x8340;&#x9A93;&#x3001;&#x7A0B;&#x90D1;</li>
+</ul>
+<h4 class="mume-header" id="%E7%8B%90%E6%B0%8F">&#x72D0;&#x6C0F;</h4>
+
+<ul>
+<li>&#x72D0;&#x5C04;&#x59D1;&#x4E0E;&#x8D75;&#x76FE;&#x56E0;&#x7ACB;&#x592A;&#x5B50;&#x4EA7;&#x751F;&#x5206;&#x6B67;&#xFF0C;&#x9003;&#x79BB;&#x664B;&#x56FD;</li>
+<li>&#x884D;&#x751F;&#x8D3E;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x72D0;&#x7A81;--&gt;&#x72D0;&#x6BDB;
+&#x72D0;&#x7A81;--&gt;&#x72D0;&#x5043;
+&#x72D0;&#x6BDB;--&gt;&#x72D0;&#x6EB1;
+&#x72D0;&#x5043;--&gt;&#x72D0;&#x5C04;&#x59D1;
+&#x72D0;&#x5043;--&#x65CF;&#x4EBA;--&gt;&#x72D0;&#x97AB;&#x5C45;
+
+&#x72D0;&#x7A81;--&gt;&#x72D0;&#x5B63;&#x59EC;
+&#x72D0;&#x7A81;--&gt;&#x5C0F;&#x620E;&#x5B50;
+&#x72D0;&#x5B63;&#x59EC;--&gt;&#x664B;&#x6587;&#x516C;
+&#x5C0F;&#x620E;&#x5B50;--&gt;&#x664B;&#x60E0;&#x516C;
+</div><h4 class="mume-header" id="%E5%85%88%E6%B0%8F">&#x5148;&#x6C0F;</h4>
+
+<ul>
+<li>&#x591A;&#x4E3A;&#x6B66;&#x5B98;</li>
+<li>&#x5148;&#x6996;&#x52FE;&#x7ED3;&#x72AC;&#x620E;&#x4F5C;&#x4E71;&#xFF0C;&#x88AB;&#x664B;&#x516C;&#x9A71;&#x9010;</li>
+<li>&#x884D;&#x751F;&#x539F;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x5148;&#x4E39;&#x6728;--&#x65CF;&#x4EBA;--&gt;&#x5148;&#x8F78;
+&#x5148;&#x53CB;--&#x65CF;&#x4EBA;--&gt;&#x5148;&#x8511;
+&#x5148;&#x8F78;--&gt;&#x5148;&#x4E14;&#x5C45;
+&#x5148;&#x8511;--&#x65CF;&#x4EBA;--&gt;&#x5148;&#x90FD;
+&#x5148;&#x8511;--&#x65CF;&#x4EBA;--&gt;&#x5148;&#x4EC6;
+&#x5148;&#x4E14;&#x5C45;--&gt;&#x5148;&#x514B;
+&#x5148;&#x514B;--&gt;&#x5148;&#x6996;
+</div><h4 class="mume-header" id="%E9%83%A4%E6%B0%8F">&#x90E4;&#x6C0F;</h4>
+
+<ul>
+<li>&#x4E09;&#x90E4;&#x951C;&#x72A8;&#x81F3;&#xFF0C;&#x88AB;&#x664B;&#x5389;&#x516C;&#x53CA;&#x80E5;&#x7AE5;&#x706D;&#x65CF;</li>
+<li>&#x884D;&#x751F;&#x5180;&#x6C0F;&#x3001;&#x6B65;&#x6C0F;&#x3001;&#x6E29;&#x6C0F;&#x3001;&#x82E6;&#x6210;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x90E4;&#x8C79;--&gt;&#x90E4;&#x79F0;
+&#x90E4;&#x8C79;--&gt;&#x90E4;&#x82AE;
+&#x90E4;&#x8C79;--&#x7591;--&gt;&#x90E4;&#x7E20;
+&#x90E4;&#x8C79;--&#x7591;--&gt;&#x90E4;&#x6EB1;
+&#x90E4;&#x8C79;--&gt;&#x90E4;&#x4E49;
+&#x90E4;&#x82AE;--&gt;&#x90E4;&#x7F3A;
+&#x90E4;&#x4E49;--&gt;&#x90E4;&#x626C;
+&#x90E4;&#x79F0;--&gt;&#x516C;&#x5B50;&#x4F2F;&#x7EA0;
+&#x90E4;&#x7F3A;--&gt;&#x90E4;&#x514B;
+&#x90E4;&#x626C;--&gt;&#x90E4;&#x72A8;
+&#x90E4;&#x626C;--&gt;&#x6B65;&#x62DB;
+&#x90E4;&#x626C;--&gt;&#x84B2;&#x57CE;&#x9E4A;&#x5C45;
+&#x90E4;&#x514B;--&gt;&#x90E4;&#x951C;
+&#x84B2;&#x57CE;&#x9E4A;&#x5C45;--&gt;&#x90E4;&#x81F3;
+&#x84B2;&#x57CE;&#x9E4A;&#x5C45;--&gt;&#x90E4;&#x6BC5;
+</div><h4 class="mume-header" id="%E8%83%A5%E6%B0%8F">&#x80E5;&#x6C0F;</h4>
+
+<ul>
+<li>&#x80E5;&#x7AE5;&#x706D;&#x4E09;&#x90E4;&#xFF0C;&#x540E;&#x88AB;&#x683E;&#x4E66;&#x3001;&#x4E2D;&#x884C;&#x5043;&#x706D;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x80E5;&#x81E3;--&gt;&#x80E5;&#x7532;
+&#x80E5;&#x5A74;
+&#x80E5;&#x7532;--&gt;&#x80E5;&#x514B;
+&#x80E5;&#x514B;--&gt;&#x80E5;&#x7AE5;
+</div><h4 class="mume-header" id="%E6%A0%BE%E6%B0%8F">&#x683E;&#x6C0F;</h4>
+
+<ul>
+<li>&#x683E;&#x6C0F;&#x4E4B;&#x4E71;&#xFF0C;&#x683E;&#x76C8;&#x88AB;&#x516D;&#x537F;&#x8054;&#x624B;&#x51FB;&#x8D25;</li>
+<li>&#x884D;&#x751F;&#x535E;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x683E;&#x5BBE;--&gt;&#x683E;&#x6210;
+&#x683E;&#x6210;--&gt;&#x683E;&#x679D;
+&#x683E;&#x679D;--&gt;&#x683E;&#x76FE;
+&#x683E;&#x76FE;--&gt;&#x683E;&#x4E66;
+&#x683E;&#x76FE;--?--&gt;&#x683E;&#x4EAC;&#x5E90;
+&#x683E;&#x4E66;--&gt;&#x683E;&#x9EE1;
+&#x683E;&#x4E66;--&gt;&#x683E;&#x94BA;
+&#x683E;&#x4E66;--&gt;&#x683E;&#x7EA0;
+&#x683E;&#x9EE1;--&gt;&#x683E;&#x76C8;
+&#x683E;&#x9EE1;--&gt;&#x683E;&#x9C82;
+&#x683E;&#x9EE1;--&gt;&#x683E;&#x8C79;
+&#x683E;&#x9EE1;--&gt;&#x683E;&#x4E50;
+</div><h4 class="mume-header" id="%E9%9F%A9%E6%B0%8F">&#x97E9;&#x6C0F;</h4>
+
+<ul>
+<li>&#x884D;&#x751F;&#x7B95;&#x6C0F;&#x3001;&#x853A;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x97E9;&#x4E07;--&gt;&#x97E9;&#x8D47;&#x4F2F;
+&#x97E9;&#x8D47;&#x4F2F;--&gt;&#x97E9;&#x7B80;
+&#x97E9;&#x7B80;--&gt;&#x97E9;&#x8207;
+&#x97E9;&#x8207;--&gt;&#x97E9;&#x53A5;
+&#x97E9;&#x53A5;--&gt;&#x97E9;&#x65E0;&#x5FCC;
+&#x97E9;&#x53A5;--&gt;&#x97E9;&#x8D77;
+&#x97E9;&#x8D77;--&gt;&#x97E9;&#x987B;
+&#x97E9;&#x65E0;&#x5FCC;--&gt;&#x7B95;&#x8944;
+&#x97E9;&#x987B;--&gt;&#x97E9;&#x4E0D;&#x4FE1;
+&#x97E9;&#x4E0D;&#x4FE1;--&gt;&#x97E9;&#x5E9A;
+&#x97E9;&#x5E9A;--&gt;&#x97E9;&#x5EB7;&#x5B50;
+</div><h4 class="mume-header" id="%E4%B8%AD%E8%A1%8C%E6%B0%8F-%E6%99%BA%E6%B0%8F">&#x4E2D;&#x884C;&#x6C0F;&#x3001;&#x667A;&#x6C0F;</h4>
+
+<ul>
+<li>&#x8340;&#x606F;&#x5047;&#x9014;&#x4F10;&#x8662;</li>
+<li>&#x8303;&#x5409;&#x5C04;&#x4E0E;&#x4E2D;&#x884C;&#x5BC5;&#x653B;&#x6253;&#x664B;&#x5B9A;&#x516C;&#xFF0C;&#x88AB;&#x56FD;&#x4EBA;&#x8D76;&#x8D70;</li>
+<li>&#x667A;&#x7476;&#x8D25;&#x4E8E;&#x664B;&#x9633;&#x4E4B;&#x6218;&#xFF0C;&#x88AB;&#x4E09;&#x5BB6;&#x5206;&#x667A;</li>
+<li>&#x6E90;&#x51FA;&#x8340;&#x6C0F;&#x3001;&#x539F;&#x6C0F;&#xFF0C;&#x8340;&#x6797;&#x7236;&#x4E3A;&#x4E2D;&#x884C;&#x6C0F;&#xFF0C;&#x8340;&#x9A93;&#x4E3A;&#x7A0B;&#x6C0F;&#xFF0C;&#x8340;&#x9996;&#x4E3A;&#x667A;&#x6C0F;&#x3002;</li>
+<li>&#x667A;&#x6C0F;&#x884D;&#x751F;&#x8F85;&#x6C0F;&#x3001;&#x6D82;&#x6C0F;&#x3002;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x8340;&#x606F;--&gt;&#x8340;&#x901D;&#x6556;
+&#x8340;&#x901D;&#x6556;--&gt;&#x8340;&#x6797;&#x7236;
+&#x8340;&#x901D;&#x6556;--&gt;&#x8340;&#x9A93;
+&#x8340;&#x901D;&#x6556;--&gt;&#x8340;&#x9996;
+&#x8340;&#x6797;&#x7236;--&gt;&#x8340;&#x5E9A;
+&#x8340;&#x9A93;--&gt;&#x8340;&#x6ED1;
+&#x8340;&#x9A93;--&#x5B59;--&gt;&#x7A0B;&#x5B63;
+&#x8340;&#x9996;--&gt;&#x667A;&#x7F43;
+&#x8340;&#x5E9A;--&gt;&#x8340;&#x5043;
+&#x7A0B;&#x5B63;--&gt;&#x7A0B;&#x90D1;
+&#x667A;&#x7F43;--&gt;&#x667A;&#x6714;
+&#x8340;&#x5043;--&gt;&#x8340;&#x5434;
+&#x667A;&#x6714;--&gt;&#x8340;&#x76C8;
+&#x8340;&#x5434;--&gt;&#x8340;&#x5BC5;
+&#x8340;&#x76C8;--&gt;&#x8340;&#x8DDE;
+&#x8340;&#x8DDE;--&gt;&#x8340;&#x7533;
+&#x8340;&#x8DDE;--&gt;&#x667A;&#x679C;
+&#x8340;&#x8DDE;--&gt;&#x667A;&#x5F90;&#x543E;
+&#x8340;&#x7533;--&gt;&#x667A;&#x5BB5;
+&#x8340;&#x7533;--&gt;&#x667A;&#x7476;
+&#x667A;&#x7476;--&gt;&#x667A;&#x989C;
+&#x667A;&#x7476;--&gt;&#x667A;&#x5F00;
+&#x667A;&#x5BB5;--&gt;&#x667A;&#x56FD;
+&#x667A;&#x5BB5;--&gt;&#x667A;&#x5BBD;
+</div><h4 class="mume-header" id="%E9%AD%8F%E6%B0%8F">&#x9B4F;&#x6C0F;</h4>
+
+<ul>
+<li>&#x8C6B;&#x8BA9;&#x51FA;&#x4E8E;&#x6BD5;&#x6C0F;</li>
+<li>&#x6E90;&#x51FA;&#x6BD5;&#x6C0F;&#x3002;&#x884D;&#x751F;&#x4EE4;&#x72D0;&#x6C0F;&#x3001;&#x5415;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x6BD5;&#x4E07;--&gt;&#x8292;&#x5B63;
+&#x8292;&#x5B63;--&gt;&#x9B4F;&#x72A8;
+&#x8292;&#x5B63;--&gt;&#x9B4F;&#x5BFF;&#x4F59;
+&#x9B4F;&#x72A8;--&gt;&#x9B4F;&#x60BC;&#x5B50;
+&#x9B4F;&#x72A8;--&gt;&#x9B4F;&#x9897;
+&#x9B4F;&#x5BFF;&#x4F59;--&gt;&#x5415;&#x951C;
+&#x9B4F;&#x60BC;&#x5B50;--&gt;&#x9B4F;&#x7EDB;
+&#x9B4F;&#x9897;--&gt;&#x9B4F;&#x9889;
+&#x9B4F;&#x7EDB;--&gt;&#x9B4F;&#x732E;&#x5B50;
+&#x9B4F;&#x7EDB;--&gt;&#x9B4F;&#x620A;
+&#x9B4F;&#x732E;&#x5B50;--&gt;&#x9B4F;&#x53D6;
+&#x9B4F;&#x53D6;--&gt;&#x9B4F;&#x66FC;&#x591A;
+&#x9B4F;&#x66FC;&#x591A;--&gt;&#x9B4F;&#x9A79;
+</div><h4 class="mume-header" id="%E8%8C%83%E6%B0%8F">&#x8303;&#x6C0F;</h4>
+
+<ul>
+<li>&#x6E90;&#x51FA;&#x88AB;&#x706D;&#x675C;&#x56FD;&#x516C;&#x5B50;&#xFF0C;&#x6765;&#x664B;&#x4E3A;&#x58EB;&#x5E08;&#xFF0C;&#x638C;&#x5211;&#x6CD5;</li>
+<li>&#x6E90;&#x51FA;&#x675C;&#x6C0F;&#x3001;&#x58EB;&#x6C0F;&#xFF0C;&#x884D;&#x751F;&#x8303;&#x6C0F;&#x3001;&#x968F;&#x6C0F;&#x3001;&#x5DE9;&#x6C0F;&#x3001;&#x5F58;&#x6C0F;&#x3001;&#x5218;&#x6C0F;</li>
+<li>&#x58EB;&#x96C3;&#x662F;&#x5218;&#x90A6;&#x7956;&#x5148;</li>
+<li>&#x8303;&#x5409;&#x5C04;&#x4E0E;&#x4E2D;&#x884C;&#x5BC5;&#x653B;&#x6253;&#x664B;&#x5B9A;&#x516C;&#xFF0C;&#x88AB;&#x56FD;&#x4EBA;&#x8D76;&#x8D70;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x96B0;&#x53D4;--&gt;&#x58EB;&#x848D;
+&#x96B0;&#x53D4;--&gt;&#x675C;&#x539F;&#x6B3E;
+&#x58EB;&#x848D;--&gt;&#x58EB;&#x7F3A;
+&#x58EB;&#x848D;--&gt;&#x58EB;&#x6996;
+&#x58EB;&#x7F3A;--&gt;&#x58EB;&#x4F1A;
+&#x58EB;&#x7F3A;--&gt;&#x58EB;&#x7A46;&#x5B50;
+&#x58EB;&#x7F3A;--?--&gt;&#x58EB;&#x6714;
+&#x58EB;&#x4F1A;--&gt;&#x58EB;&#x71EE;
+&#x58EB;&#x4F1A;--&gt;&#x58EB;&#x96C3;
+&#x58EB;&#x4F1A;--&gt;&#x58EB;&#x9C82;
+&#x58EB;&#x7A46;&#x5B50;--&gt;&#x58EB;&#x6E25;&#x6D4A;
+&#x58EB;&#x6714;--&#x65CF;&#x4EBA;--&gt;&#x58EB;&#x5BCC;
+&#x58EB;&#x71EE;--&gt;&#x58EB;&#x5304;
+&#x58EB;&#x6E25;&#x6D4A;--&gt;&#x58EB;&#x5F31;
+&#x58EB;&#x96C3;--&gt;&#x5218;&#x660E;
+&#x58EB;&#x5304;--&gt;&#x58EB;&#x9785;
+&#x58EB;&#x5F31;--&gt;&#x58EB;&#x7455;
+&#x5218;&#x660E;--&gt;&#x5218;&#x8FDC;
+&#x58EB;&#x9785;--&gt;&#x8303;&#x662D;&#x5B50;
+&#x58EB;&#x7455;--&gt;&#x58EB;&#x5F25;&#x725F;
+&#x5218;&#x8FDC;--&gt;&#x5218;&#x9633;
+</div><h4 class="mume-header" id="%E8%B5%B5%E6%B0%8F">&#x8D75;&#x6C0F;</h4>
+
+<ul>
+<li>&#x884D;&#x751F;&#x6881;&#x6C0F;&#x3001;&#x539F;&#x6C0F;&#x3001;&#x5C4F;&#x6C0F;&#x3001;&#x697C;&#x6C0F;&#x3001;&#x90AF;&#x90F8;&#x6C0F;</li>
+<li>&#x7B80;&#x7565;&#x65CF;&#x8C31;</li>
+</ul>
+<div class="mermaid">graph TB
+&#x8D75;&#x5919;--&gt;&#x8D75;&#x5171;&#x5B5F;
+&#x8D75;&#x5171;&#x5B5F;--&gt;&#x8D75;&#x8870;
+&#x8D75;&#x8870;--&gt;&#x8D75;&#x76FE;
+&#x8D75;&#x8870;--&gt;&#x8D75;&#x540C;
+&#x8D75;&#x8870;--&gt;&#x8D75;&#x62EC;
+&#x8D75;&#x8870;--&gt;&#x8D75;&#x5A74;&#x9F50;
+&#x8D75;&#x8870;--&gt;&#x8D75;&#x7A7F;
+&#x8D75;&#x76FE;--&gt;&#x8D75;&#x6714;
+&#x8D75;&#x7A7F;--&gt;&#x8D75;&#x65C3;
+&#x8D75;&#x6714;--&gt;&#x8D75;&#x6B66;
+&#x8D75;&#x65C3;--&gt;&#x8D75;&#x80DC;
+&#x8D75;&#x6B66;--&gt;&#x8D75;&#x6210;
+&#x8D75;&#x80DC;--&gt;&#x8D75;&#x5348;
+&#x8D75;&#x6210;--&gt;&#x8D75;&#x9785;
+&#x8D75;&#x5348;--&gt;&#x8D75;&#x7A37;
+&#x8D75;&#x9785;--&gt;&#x8D75;&#x4F2F;&#x9C81;
+&#x8D75;&#x9785;--&gt;&#x8D75;&#x6BCB;&#x6064;
+</div>
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>
