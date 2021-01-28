@@ -1,6 +1,5 @@
-REM pip install csvtotable
-
 @echo off
+REM pip install csvtotable
 
 REM 1
 cd Ö÷Òª”µ“þ
