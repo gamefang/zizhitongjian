@@ -226,6 +226,8 @@ _fnLog:K,_fnMap:F,_fnBindAction:Ya,_fnCallbackReg:z,_fnCallbackFire:s,_fnLengthO
 		table.dataTable tbody th,
 		table.dataTable tbody td {
 			padding: 8px 10px;
+			border-left: 1px solid #ccc;	/*添加表格左右网格*/
+			border-right: 1px solid #ccc;
 		}
 
 		#table_wrapper {
@@ -243,8 +245,7 @@ _fnLog:K,_fnMap:F,_fnBindAction:Ya,_fnCallbackReg:z,_fnCallbackFire:s,_fnLengthO
 			margin-bottom: 20px;
 			font-size: 10px;
 			text-transform: uppercase;
-			float: right;
-   		margin-left: 20px;
+			float: left;	/*搜索功能修改为左侧对齐*/
 		}
 
 		#table_wrapper .dataTables_length label,
