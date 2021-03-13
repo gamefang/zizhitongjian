@@ -4,7 +4,7 @@ REM pip install csvtotable
 REM 1
 cd 主要數據
 csvtotable 通鑒目錄.csv 通鑒目錄.html -o -c 通鑒目錄 -e -dl 100
-csvtotable 人物總表.csv 人物總表.html -o -c 人物總表 -e -dl 100
+csvtotable 人物總表.csv 人物總表.html -o -c 人物總表 -vs -1 -e -dl 100
 
 cd 政權年代表
 csvtotable 戰國秦.csv 戰國秦.html -o -c 戰國秦 -e
