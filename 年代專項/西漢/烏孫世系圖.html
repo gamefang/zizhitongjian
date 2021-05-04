@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>字段說明</title>
+      <title>烏孫世系圖</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -7,7 +7,7 @@
       
       
       
-      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js"></script>
       
       
       
@@ -261,160 +261,118 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="%E4%BA%BA%E7%89%A9%E7%B8%BD%E8%A1%A8">人物總表</h1>
+      <h1 class="mume-header" id="%E7%83%8F%E5%AD%AB%E4%B8%96%E7%B3%BB%E5%9C%96">烏孫世系圖</h1>
 
-<ul>
-<li>所有類數組數據以<code>|</code>符號分隔</li>
-<li>60000以上索引號人物為書外人物</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段名稱</th>
-<th>字段類型</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>索引號</td>
-<td>int</td>
-<td>主鍵，唯一數值索引，每卷占200號</td>
-</tr>
-<tr>
-<td>慣用名</td>
-<td>str</td>
-<td>WIKI百科中常規用名，如無沿用其它</td>
-</tr>
-<tr>
-<td>通鑑名</td>
-<td>array</td>
-<td>通鑒內出現的指示此人的所有名稱</td>
-</tr>
-<tr>
-<td>通鑑目錄</td>
-<td>int</td>
-<td>外鍵，通鑑內首次出現的目錄編號</td>
-</tr>
-<tr>
-<td>出處</td>
-<td>int</td>
-<td>空-常規正文，此時代人物；1-臣光曰；2-常規正文，提及之後時代人物；3-常規正文，提及之前時代人物；9-書外記錄關聯或聯想人物</td>
-</tr>
-<tr>
-<td>女性</td>
-<td>bool</td>
-<td>空-男；1-女；0-太監</td>
-</tr>
-<tr>
-<td>別稱</td>
-<td>array</td>
-<td>常見的別稱。可能有多個，下同</td>
-</tr>
-<tr>
-<td>姓</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>名</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>字</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>號</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>氏</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>謚</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>生年</td>
-<td>int</td>
-<td>出生年。以負號表示公元前，未知為0，下同</td>
-</tr>
-<tr>
-<td>卒年</td>
-<td>int</td>
-<td>死亡年</td>
-</tr>
-<tr>
-<td>出生月日</td>
-<td>str</td>
-<td>文本表示。只有月格式*，有月日格式*.<em>（?0日表现为</em>.*.），下同</td>
-</tr>
-<tr>
-<td>去世月日</td>
-<td>str</td>
-<td>文本表示</td>
-</tr>
-<tr>
-<td>得位年</td>
-<td>int</td>
-<td>統治者的得位年</td>
-</tr>
-<tr>
-<td>失位年</td>
-<td>int</td>
-<td>統治者的失位年</td>
-</tr>
-<tr>
-<td>統治政權</td>
-<td>str</td>
-<td>可能統治多個政權，則得位年、失位年為全部時間；若多統治政權時間不連續，只取第一個，其余簡述中說明</td>
-</tr>
-<tr>
-<td>從屬政權</td>
-<td>array</td>
-<td>可能從屬多個政權</td>
-</tr>
-<tr>
-<td>生僻度</td>
-<td>int</td>
-<td>空-維基百科有此詞條；1-維基百科無，百度有此詞條；2-維基、百度均無此詞條，散見其餘字典；3-網絡搜索中基本無此人相關檔案；4-歷史上從未記載過真名，以代稱或另一人關係名出現；5-歷史上從未記載過真名，但其余文獻有詳述，或有一定知名度</td>
-</tr>
-<tr>
-<td>簡述</td>
-<td>str</td>
-<td>簡要描述此人事跡</td>
-</tr>
-<tr>
-<td>記載年</td>
-<td>array</td>
-<td>若無生卒得失年，可記錄歷史記載的活躍年份，取可查最早出現的年份</td>
-</tr>
-<tr>
-<td>記載年備註</td>
-<td>str</td>
-<td>僅用於記載年的相關說明。如有記載年而此處無備注，表示來自通鑑內記載</td>
-</tr>
-<tr>
-<td>備注</td>
-<td>str</td>
-<td>問題考據、生僻字讀音、wiki名不一致等內容</td>
-</tr>
-</tbody>
-</table>
+<h2 class="mume-header" id="%E5%82%B3%E4%BD%8D%E5%9C%96">傳位圖</h2>
 
+<div class="mermaid">graph TB
+難兜靡--&gt;獵驕靡
+獵驕靡--&gt;軍須靡
+軍須靡--&gt;翁歸靡
+翁歸靡--&gt;泥靡
+泥靡--&gt;元貴靡
+泥靡--&gt;烏就屠
+
+subgraph 大昆彌
+    元貴靡--&gt;星靡
+    星靡--&gt;雌栗靡
+    雌栗靡--&gt;伊秩靡
+end
+
+subgraph 小昆彌
+    烏就屠--&gt;拊離
+    拊離--&gt;安日
+    安日--&gt;末振將
+    末振將--&gt;安犁靡
+end
+</div><h2 class="mume-header" id="%E9%97%9C%E7%B3%BB%E5%9C%96">關系圖</h2>
+
+<div class="mermaid">graph TB
+
+難兜靡--&gt;獵驕靡
+
+獵驕靡--&gt;獵驕靡長子
+獵驕靡--&gt;大祿
+
+獵驕靡長子--&gt;軍須靡
+軍須靡--&gt;泥靡
+匈奴左夫人--&gt;泥靡
+
+大祿--&gt;翁歸靡
+翁歸靡--&gt;元貴靡
+劉解憂--&gt;元貴靡
+元貴靡--&gt;星靡
+星靡--&gt;雌栗靡
+翁歸靡--&gt;大樂
+劉解憂--&gt;大樂
+大樂--&gt;伊雉靡
+
+翁歸靡--&gt;烏就屠
+烏就屠母--&gt;烏就屠
+烏就屠--&gt;拊離
+拊離--&gt;安日
+拊離--&gt;末振將
+安日--&gt;安犁靡
+
+classDef female fill:#ffcccc
+class 匈奴左夫人,劉解憂,烏就屠母 female
+</div><h2 class="mume-header" id="%E5%A4%AB%E5%A6%BB%E9%97%9C%E7%B3%BB%E5%9C%96">夫妻關系圖</h2>
+
+<div class="mermaid">graph LR
+匈奴左夫人--和親--&gt;獵驕靡
+匈奴左夫人--獵驕靡死--&gt;軍須靡
+
+劉細君--和親--&gt;獵驕靡
+劉細君--獵驕靡死--&gt;軍須靡
+
+劉解憂--劉細君死--&gt;軍須靡
+劉解憂--軍須靡死--&gt;翁歸靡
+劉解憂--翁歸靡死--&gt;泥靡
+
+劉相夫--和親未遂---元貴靡
+
+classDef female fill:#ffcccc
+class 匈奴左夫人,劉細君,劉解憂,劉相夫 female
+</div>
       </div>
       
       
     
     
-    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
     
     
     
