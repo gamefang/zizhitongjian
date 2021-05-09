@@ -265,7 +265,7 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <ul>
 <li>所有類數組數據以<code>|</code>符號分隔</li>
-<li>60000以上索引號人物為書外人物</li>
+<li>60000以上或負索引號人物為書外人物</li>
 </ul>
 <table>
 <thead>
@@ -284,7 +284,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <tr>
 <td>慣用名</td>
 <td>str</td>
-<td>WIKI百科中常規用名，如無沿用其它</td>
+<td>綜合慣用名，以WIKI百科查詢為基準，部分結合慣用稱呼有調整</td>
 </tr>
 <tr>
 <td>通鑑名</td>
@@ -309,12 +309,12 @@ pre[data-line] .line-highlight[data-end]:after {
 <tr>
 <td>別稱</td>
 <td>array</td>
-<td>常見的別稱。可能有多個，下同</td>
+<td>常見的別稱，通鑑名已有者不列。可能有多個，下同</td>
 </tr>
 <tr>
 <td>姓</td>
 <td>array</td>
-<td></td>
+<td>約西漢中期姓氏統一，只用姓</td>
 </tr>
 <tr>
 <td>名</td>
@@ -334,7 +334,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <tr>
 <td>氏</td>
 <td>array</td>
-<td></td>
+<td>約西漢中期姓氏統一，不再用氏</td>
 </tr>
 <tr>
 <td>謚</td>
@@ -402,9 +402,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <td>僅用於記載年的相關說明。如有記載年而此處無備注，表示來自通鑑內記載</td>
 </tr>
 <tr>
+<td>wiki異名</td>
+<td>str</td>
+<td>如有，則wiki名為此，否則與慣用名同</td>
+</tr>
+<tr>
 <td>備注</td>
 <td>str</td>
-<td>問題考據、生僻字讀音、wiki名不一致等內容</td>
+<td>問題考據、生僻字讀音、生卒年范圍等</td>
 </tr>
 </tbody>
 </table>
