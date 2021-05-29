@@ -30,6 +30,10 @@ cd ..
 REM 3
 cd 通用專項
 
+cd 歷代世系圖
+csvtotable 西漢世系表.csv 西漢世系表.html -o -c 西漢世系表 -e
+cd ..
+
 cd 雜項
 REM csvtotable 干支表.csv 干支表.html -o -c 干支表 -e
 REM csvtotable 攝提對照表.csv 攝提對照表.html -o -c 攝提對照表 -e
