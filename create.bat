@@ -22,7 +22,7 @@ REM cd ..
 
 cd 西漢
 REM csvtotable 西漢開國功臣列表.csv 西漢開國功臣列表.html -o -c 西漢開國功臣列表 -e
-REM csvtotable 張騫通西域諸國概況.csv 張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
+csvtotable 張騫通西域諸國概況.csv 張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
 cd ..
 
 cd ..
