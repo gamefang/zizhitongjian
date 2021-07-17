@@ -25,6 +25,10 @@ REM csvtotable 西漢開國功臣列表.csv 西漢開國功臣列表.html -o -c 西漢開國功臣列表
 csvtotable 張騫通西域諸國概況.csv 張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
 cd ..
 
+cd 新朝
+csvtotable 王莽寶貨制.csv 王莽寶貨制.html -o -c 王莽寶貨制 -e
+cd ..
+
 cd ..
 
 REM 3
@@ -40,7 +44,7 @@ REM csvtotable 攝提對照表.csv 攝提對照表.html -o -c 攝提對照表 -e
 csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
 REM csvtotable 被詛咒的趙王.csv 被詛咒的趙王.html -o -c 被詛咒的趙王 -e
 REM csvtotable 百越各國.csv 百越各國.html -o -c 百越各國 -e
-csvtotable 匈奴語對照表.csv 匈奴語對照表.html -o -c 匈奴語對照表 -e
+REM csvtotable 匈奴語對照表.csv 匈奴語對照表.html -o -c 匈奴語對照表 -e
 cd ..
 
 cd ..
