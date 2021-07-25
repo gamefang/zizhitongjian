@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>綠林赤眉起義示意圖</title>
+      <title>兩漢劉氏世系圖</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -261,57 +261,49 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <div class="mermaid">gantt
+      <h1 class="mume-header" id="%E5%85%A9%E6%BC%A2%E5%8A%89%E6%B0%8F%E4%B8%96%E7%B3%BB%E5%9C%96">兩漢劉氏世系圖</h1>
 
-title 綠林赤眉起義勢力圖
-%% 輸入時間格式
-dateFormat Y
-%% 輸出時間格式
-axisFormat %y
-todayMarker off
+<h2 class="mume-header" id="%E6%9B%B4%E5%A7%8B%E5%85%89%E6%AD%A6%E4%B8%96%E7%B3%BB%E5%9C%96">更始光武世系圖</h2>
 
-section 綠林軍
-    王匡:wk,17,1830d
-    王鳳:wf,17,1830d
-    馬武:mw,17,1830d
-    王常:wc,17,1830d
-    成丹:cd,17,1830d
-    section __新市兵
-        王匡:active,wk2,after wk,366d
-        王鳳:active,wf2,after wf,366d
-        馬武:active,mw2,after mw,366d  
-    section __下江兵
-        王常:active,wc2,after wc,366d
-        成丹:active,cd2,after wc,366d
-    section __平林兵
-        陳牧:cm,22,366d
-        廖湛:lz,22,366d     
-    section __舂陵兵
-        劉縯:ly,22,366d
-        劉秀:lx,22,366d
-section 更始帝
-    王匡:done,wk3,after wk2,366d
-    王鳳:done,wf3,after wf2,732d
-    劉縯:active,ly2,after ly,732d
-    劉秀:active,lx2,after lx,732d
-section 東漢
-    劉秀:done,lx3,after lx2,732d
-    
-section 赤眉軍
-    樊崇:fc,18,2562d
-    逄安:pa,18,2562d
-    徐宣:xx,18,2562d
-    謝祿:xl,18,2562d
-    楊音:yy,18,2562d
-section 劉盆子
-    樊崇:active,fc2,after fc,732d
-    徐宣:active,xx2,after xx,732d
-    王匡:crit,wk4,after wk3,366d
-  
-section 群雄
-  瓜田儀:gty,17,1464d
-  呂母:lm,17,366d
-  刁子都:dzd,18,2928d
+<div class="mermaid">graph TB
+劉發--&gt;劉買
+劉買--&gt;劉熊渠
+劉熊渠--&gt;劉仁
+劉仁--&gt;劉敞
+劉熊渠--庶子--&gt;劉利
+劉利--&gt;劉子張
+劉子張--&gt;劉玄
+
+劉買--&gt;劉外
+劉外--&gt;劉回
+劉回--&gt;劉欽
+劉欽--&gt;劉黃
+劉欽--&gt;劉元
+劉欽--&gt;劉縯
+劉欽--&gt;劉仲
+劉欽--&gt;劉秀
+劉欽--&gt;劉伯姬
+劉回--&gt;劉良
+
+classDef female fill:#ffcccc
+class 劉黃,劉元,劉伯姬 female
+
+classDef king fill:#ffee00
+class 劉玄,劉秀 king
+</div><h2 class="mume-header" id="%E5%8A%89%E7%9B%86%E5%AD%90%E4%B8%96%E7%B3%BB%E5%9C%96">劉盆子世系圖</h2>
+
+<div class="mermaid">graph TB
+劉章--&gt;劉喜
+劉喜--&gt;劉延
+劉延--&gt;劉義
+劉義--&gt;劉武
+劉武--&gt;劉順
+劉順--&gt;劉憲
+劉憲--&gt;劉萌
+劉萌--&gt;劉盆子
+
+classDef king fill:#ffee00
+class 劉盆子 king
 </div>
       </div>
       
