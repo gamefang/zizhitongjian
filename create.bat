@@ -22,11 +22,11 @@ REM cd ..
 
 cd 西漢
 REM csvtotable 西漢開國功臣列表.csv 西漢開國功臣列表.html -o -c 西漢開國功臣列表 -e
-csvtotable 張騫通西域諸國概況.csv 張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
+REM csvtotable 張騫通西域諸國概況.csv 張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
 cd ..
 
 cd 新朝
-csvtotable 王莽寶貨制.csv 王莽寶貨制.html -o -c 王莽寶貨制 -e
+REM csvtotable 王莽寶貨制.csv 王莽寶貨制.html -o -c 王莽寶貨制 -e
 cd ..
 
 cd ..
@@ -35,7 +35,7 @@ REM 3
 cd 通用專項
 
 cd 歷代世系圖
-csvtotable 西漢世系表.csv 西漢世系表.html -o -c 西漢世系表 -e
+REM csvtotable 西漢世系表.csv 西漢世系表.html -o -c 西漢世系表 -e
 cd ..
 
 cd 雜項
