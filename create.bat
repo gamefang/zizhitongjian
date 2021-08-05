@@ -29,6 +29,10 @@ cd 新朝
 REM csvtotable 王莽寶貨制.csv 王莽寶貨制.html -o -c 王莽寶貨制 -e
 cd ..
 
+cd 東漢
+csvtotable 云臺二十八將表.csv 云臺二十八將表.html -o -c 云臺二十八將表 -e
+cd ..
+
 cd ..
 
 REM 3
