@@ -1,0 +1,588 @@
+<!DOCTYPE html><html><head>
+      <title>资治通鉴43</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <blockquote>
+<p>2021/8/23-&gt;2021/8/30</p>
+</blockquote>
+<h1 class="mume-header" id="504-%E5%8D%B7%E5%9B%9B%E5%8D%81%E4%B8%89-%E6%B1%89%E7%BA%AA%E4%B8%89%E5%8D%81%E4%BA%94">504 卷四十三 汉纪三十五</h1>
+
+<blockquote>
+<p>36-&gt;46</p>
+</blockquote>
+<h2 class="mume-header" id="50401-%E5%B9%B3%E5%85%AC%E5%AD%AB%E8%BF%B0%E5%8F%8A%E8%A1%80%E6%B4%97%E6%88%90%E9%83%BD">50401 平公孫述及血洗成都</h2>
+
+<blockquote>
+<p>春，正月，吴汉破公孙述将魏堂、公孙永于鱼涪津-&gt;封成义侯</p>
+</blockquote>
+<h2 class="mume-header" id="50402-%E9%A6%AC%E6%8F%B4%E5%B9%B3%E7%BE%8C%E5%8F%8A%E7%AB%87%E8%9E%8D%E6%9C%9D%E6%BC%A2">50402 馬援平羌及竇融朝漢</h2>
+
+<blockquote>
+<p>十二月，辛卯，扬武将军马成行大司空事-&gt;大司徒侯霸薨</p>
+</blockquote>
+<ul>
+<li>羌人諸种</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>羌</th>
+<th>種</th>
+<th>簡述</th>
+<th>名人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先零羌</td>
+<td></td>
+<td>趙充國、馬援擊之，參與五胡亂華</td>
+<td>滇零</td>
+</tr>
+<tr>
+<td>燒當羌</td>
+<td></td>
+<td>無弋爰劍十三世，源出研種</td>
+<td>燒當、滇良、滇吾</td>
+</tr>
+<tr>
+<td>研種羌</td>
+<td>研種</td>
+<td>忍子研後裔</td>
+<td>研、留何</td>
+</tr>
+<tr>
+<td>白水羌</td>
+<td></td>
+<td>南北朝建立鄧至政權</td>
+<td>像舒治</td>
+</tr>
+<tr>
+<td>越巂羌</td>
+<td>氂牛種</td>
+<td>無弋爰劍孫邛後裔</td>
+<td></td>
+</tr>
+<tr>
+<td>廣漢羌</td>
+<td>白馬種</td>
+<td>無弋爰劍孫邛後裔</td>
+<td></td>
+</tr>
+<tr>
+<td>武都羌</td>
+<td>參狼種</td>
+<td>無弋爰劍孫邛後裔</td>
+<td></td>
+</tr>
+<tr>
+<td>湟中羌</td>
+<td>湟中諸種</td>
+<td>無弋爰劍曾孫忍及弟舞後裔</td>
+<td></td>
+</tr>
+<tr>
+<td>封養羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>牢姐羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>燒何羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>當煎羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鍾羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>勒姐羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>彡姐羌</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>光武告任延，要好好給領導做事，任延說臣子為公家做事不是為領導，光武說你說得對。光武千載難逢，故以上做法反其道而行之，放之四海而皆准：領導口頭永遠說為公家做事；臣子應為領導做事而不是公家；即使臣子反駁得對，領導也不能承認</li>
+<li>颇哀老子，使得遨游：馬援說要多照顧老年人，別什麼事都麻煩我</li>
+</ul>
+<h2 class="mume-header" id="50403-%E7%9B%A7%E8%8A%B3%E5%A5%94%E5%8C%88%E5%A5%B4%E5%8F%8A%E5%81%83%E6%AD%A6%E4%BF%AE%E6%96%87">50403 盧芳奔匈奴及偃武修文</h2>
+
+<blockquote>
+<p>戊子，诏曰-&gt;无诛谴者</p>
+</blockquote>
+<ul>
+<li>光武夜獵回，郅惲拒關不開，言“火明遼遠”，光武繞道回家</li>
+</ul>
+<h2 class="mume-header" id="50404-%E7%AB%87%E8%9E%8D%E9%81%BF%E8%AE%93%E5%8F%8A%E6%A2%81%E7%B5%B1%E8%AB%AB%E5%88%91%E7%BD%B0%E5%8F%8A%E9%9F%93%E6%AD%86%E6%AD%BB">50404 竇融避讓及梁統諫刑罰及韓歆死</h2>
+
+<blockquote>
+<p>益州传送公孙述瞽师-&gt;岂不为仁明之累哉</p>
+</blockquote>
+<ul>
+<li>公孫述修飾邊幅，最終一整套祭祀裝備歸光武所有</li>
+<li>史載光武逼死直諫韓歆，或廢郭后、不容人等，可知餘書可信，並非溢美，皇帝如此已經可遇不可求了</li>
+</ul>
+<h2 class="mume-header" id="50405-%E5%B0%81%E5%AE%97%E5%AE%A4%E5%8F%8A%E5%BA%A6%E7%94%B0%E4%BB%A4%E5%8F%8A%E5%BC%B5%E5%A0%AA%E6%B2%BB%E6%BC%81%E9%99%BD">50405 封宗室及度田令及張堪治漁陽</h2>
+
+<blockquote>
+<p>丁未，有星孛于昴-&gt;安平侯盖延薨</p>
+</blockquote>
+<ul>
+<li>光武子嗣表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>排行</th>
+<th>生母</th>
+<th>位號</th>
+<th>詳情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>劉彊</td>
+<td>長子</td>
+<td>郭聖通</td>
+<td>東海王</td>
+<td>因郭后被廢主動辭太子位</td>
+</tr>
+<tr>
+<td>劉輔</td>
+<td>次子</td>
+<td>郭聖通</td>
+<td>沛王</td>
+<td>好經書</td>
+</tr>
+<tr>
+<td>劉英</td>
+<td>三子</td>
+<td>許美人</td>
+<td>楚王</td>
+<td>私造圖讖謀逆被誅，佛教徒</td>
+</tr>
+<tr>
+<td>漢明帝</td>
+<td>四子</td>
+<td>陰麗華</td>
+<td>漢明帝</td>
+<td></td>
+</tr>
+<tr>
+<td>劉康</td>
+<td>五子</td>
+<td>郭聖通</td>
+<td>濟南王</td>
+<td>不守法度</td>
+</tr>
+<tr>
+<td>劉蒼</td>
+<td>六子</td>
+<td>陰麗華</td>
+<td>東平王</td>
+<td>為相輔政</td>
+</tr>
+<tr>
+<td>劉延</td>
+<td>七子</td>
+<td>郭聖通</td>
+<td>阜陵王</td>
+<td>私造圖讖</td>
+</tr>
+<tr>
+<td>劉荊</td>
+<td>八子</td>
+<td>陰麗華</td>
+<td>廣陵王</td>
+<td>謀反祝詛自殺</td>
+</tr>
+<tr>
+<td>劉衡</td>
+<td>九子</td>
+<td>陰麗華</td>
+<td>臨淮公</td>
+<td>早死</td>
+</tr>
+<tr>
+<td>劉焉</td>
+<td>十子</td>
+<td>郭聖通</td>
+<td>中山王</td>
+<td>少子，郭后偏愛</td>
+</tr>
+<tr>
+<td>劉京</td>
+<td>十一子</td>
+<td>陰麗華</td>
+<td>琅邪王</td>
+<td>好宮室</td>
+</tr>
+<tr>
+<td>劉義王</td>
+<td>長女</td>
+<td></td>
+<td>舞陰公主</td>
+<td>梁松妻</td>
+</tr>
+<tr>
+<td>劉中禮</td>
+<td>二女</td>
+<td>陰麗華</td>
+<td>涅陽公主</td>
+<td>竇固妻</td>
+</tr>
+<tr>
+<td>劉紅夫</td>
+<td>三女</td>
+<td>郭聖通</td>
+<td>館陶公主</td>
+<td>韓光妻</td>
+</tr>
+<tr>
+<td>劉禮劉</td>
+<td>四女</td>
+<td>陰麗華</td>
+<td>淯陽公主</td>
+<td>郭璜妻</td>
+</tr>
+<tr>
+<td>劉綬</td>
+<td></td>
+<td></td>
+<td>酈邑公主</td>
+<td>陰豐妻，善妒被殺</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="50406-%E4%BA%8C%E5%BE%B5%E8%B5%B7%E7%BE%A9%E5%8F%8A%E5%BB%A2%E9%83%AD%E5%90%8E">50406 二徵起義及廢郭后</h2>
+
+<blockquote>
+<p>交趾麊泠县雒将女子征侧-&gt;其餘九國公皆為王</p>
+</blockquote>
+<h2 class="mume-header" id="50407-%E5%B9%B3%E5%8F%B2%E6%AD%86%E5%B9%B3%E4%BA%8C%E5%BE%81%E6%98%93%E5%A4%AA%E5%AD%90">50407 平史歆平二征易太子</h2>
+
+<blockquote>
+<p>甲申，帝幸章陵-&gt;亦何以过乎</p>
+</blockquote>
+<ul>
+<li>盧芳集騙子、軍閥、漢奸、反復小人、逃兵於一身，最終在匈奴安度晚年因病去世</li>
+</ul>
+<h2 class="mume-header" id="50408-%E9%99%B0%E6%B0%8F%E8%88%88%E5%8F%8A%E5%BC%B7%E9%A0%85%E4%BB%A4%E5%8F%8A%E5%90%B3%E6%BC%A2%E6%AD%BB">50408 陰氏興及強項令及吳漢死</h2>
+
+<blockquote>
+<p>帝以太子舅阴识守执金吾-&gt;行大司馬事</p>
+</blockquote>
+<h2 class="mume-header" id="50409-%E6%94%BB%E5%8C%88%E5%A5%B4%E6%93%8A%E7%83%8F%E6%A1%93%E7%A0%B4%E9%AE%AE%E5%8D%91">50409 攻匈奴擊烏桓破鮮卑</h2>
+
+<blockquote>
+<p>乙未，徙中山王輔為沛王-&gt;顾命书诸策</p>
+</blockquote>
+<ul>
+<li>劉昆為政時期叩頭滅火、虎北渡河，自言偶然，光武褒獎實話實說，可知其對自造的讖書也心知肚明，文化人自古都不迷信</li>
+</ul>
+<h2 class="mume-header" id="50410-%E7%83%8F%E6%A1%93%E7%A0%B4%E5%8C%88%E5%A5%B4%E5%8F%8A%E8%8E%8E%E8%BB%8A%E9%9C%B8%E8%A5%BF%E5%9F%9F">50410 烏桓破匈奴及莎車霸西域</h2>
+
+<blockquote>
+<p>是岁，青州蝗-&gt;义兼之矣</p>
+</blockquote>
+<ul>
+<li>大禹不貪西戎之地，周公不取越裳氏，漢文帝卻走馬，光武帝棄西域，自古以來不貪領土其實為美德，而漢武帝窮兵黷武被詬病，晚年放棄輪台方得保晚節</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
