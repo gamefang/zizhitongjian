@@ -36,7 +36,7 @@ REM 3 -------------------
 cd 3_年代專項
 
 cd 3.5_東漢
-csvtotable 云臺二十八將表.csv 云臺二十八將表.html -o -c 云臺二十八將表 -e
+csvtotable 雲臺二十八將表.csv 雲臺二十八將表.html -o -c 雲臺二十八將表 -e
 cd ..
 
 cd ..
