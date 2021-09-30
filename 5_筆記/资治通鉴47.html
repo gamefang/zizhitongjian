@@ -1,0 +1,615 @@
+<!DOCTYPE html><html><head>
+      <title>资治通鉴47</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <blockquote>
+<p>2021/9/24-&gt;2021/9/30</p>
+</blockquote>
+<h1 class="mume-header" id="508-%E5%8D%B7%E5%9B%9B%E5%8D%81%E4%B8%83-%E6%B1%89%E7%BA%AA%E4%B8%89%E5%8D%81%E4%B9%9D">508 卷四十七 汉纪三十九</h1>
+
+<blockquote>
+<p>85-&gt;91</p>
+</blockquote>
+<h2 class="mume-header" id="50801-%E5%9B%9B%E5%88%86%E6%9B%86%E5%8F%8A%E7%A5%AD%E5%AD%94%E7%A5%AD%E7%A5%96">50801 四分曆及祭孔祭祖</h2>
+
+<blockquote>
+<p>春，正月，乙酉，诏曰-&gt;止用冬初十月而已</p>
+</blockquote>
+<ul>
+<li>六代之樂</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>朝代</th>
+<th>樂舞名</th>
+<th>別名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>黃帝</td>
+<td>雲門</td>
+<td>雲門大卷</td>
+<td>文舞，祭祀天神</td>
+</tr>
+<tr>
+<td>堯</td>
+<td>咸池</td>
+<td>大咸、大章</td>
+<td>文舞，祭祀地神</td>
+</tr>
+<tr>
+<td>舜</td>
+<td>大韶</td>
+<td>韶</td>
+<td>文舞，祭祀四望</td>
+</tr>
+<tr>
+<td>禹</td>
+<td>大夏</td>
+<td></td>
+<td>文舞，祭祀山川</td>
+</tr>
+<tr>
+<td>湯</td>
+<td>大護</td>
+<td>大濩</td>
+<td>武舞，祭祀姜嫄</td>
+</tr>
+<tr>
+<td>周</td>
+<td>大武</td>
+<td></td>
+<td>武舞，祭祀周朝祖先</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="50802-%E9%82%84%E7%94%9F%E5%8F%A3%E9%84%AD%E5%BC%98%E6%AD%BB%E6%93%92%E8%99%9F%E5%90%BE%E6%96%AC%E7%96%8F%E5%8B%92">50802 還生口鄭弘死擒號吾斬疏勒</h2>
+
+<blockquote>
+<p>冬，南单于遣兵与北虏温禺犊王战于涿邪山-&gt;南道遂通</p>
+</blockquote>
+<ul>
+<li>北匈奴約與漢合市，南匈奴劫掠之。漢加倍奉還所劫，並賞賜南匈奴。二匈奴仍冥冥之中共食漢</li>
+<li>漢章帝知鄭弘忠竇憲專權而不能治，皇權頹勢已明</li>
+</ul>
+<h2 class="mume-header" id="50803-%E6%9B%B9%E8%A4%92%E5%88%B6%E7%A6%AE%E5%8F%8A%E6%96%AC%E8%BF%B7%E5%90%BE%E9%99%8D%E8%8E%8E%E8%BB%8A">50803 曹褒制禮及斬迷吾降莎車</h2>
+
+<blockquote>
+<p>楚许太后薨-&gt;自是威震西域</p>
+</blockquote>
+<ul>
+<li>漢龜茲王世系</li>
+</ul>
+<div class="mermaid">graph TB
+絳賓--弟史子--&gt;承德
+承德--未知關係--&gt;龜茲王弘
+龜茲王弘--莎車王賢子--&gt;則羅
+則羅--龜茲貴族--&gt;身毒
+身毒--未知關係--&gt;龜茲王建
+龜茲王建--未知關係--&gt;尤利多
+尤利多--班超立漢侍子--&gt;白霸
+</div><h2 class="mume-header" id="50804-%E8%AD%B0%E9%81%A3%E8%AB%B8%E7%8E%8B%E5%8F%8A%E6%BC%A2%E7%AB%A0%E5%B8%9D%E5%B4%A9">50804 議遣諸王及漢章帝崩</h2>
+
+<blockquote>
+<p>春，正月，济南王康-&gt;为休兰尸逐侯鞮单于</p>
+</blockquote>
+<h2 class="mume-header" id="50805-%E7%AB%87%E5%90%8E%E8%87%A8%E6%9C%9D%E5%8F%8A%E8%AD%B0%E6%93%8A%E5%8C%97%E5%8C%88%E5%A5%B4">50805 竇后臨朝及議擊北匈奴</h2>
+
+<blockquote>
+<p>太后临朝-&gt;诚不可许</p>
+</blockquote>
+<ul>
+<li>西漢皇后外戚結局表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>皇帝</th>
+<th>后妃</th>
+<th>結局</th>
+<th>重要外戚</th>
+<th>結局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>劉邦</td>
+<td>呂后</td>
+<td>臨朝稱制</td>
+<td>呂台、呂祿、呂產</td>
+<td>誅呂安劉</td>
+</tr>
+<tr>
+<td>漢惠帝</td>
+<td>孝惠張皇后</td>
+<td>善終</td>
+<td>張敖</td>
+<td>未成外戚集團，善終</td>
+</tr>
+<tr>
+<td>漢文帝</td>
+<td>薄姬(太后)</td>
+<td>善終</td>
+<td>薄昭</td>
+<td>文帝賜死</td>
+</tr>
+<tr>
+<td>漢文帝</td>
+<td>孝文竇皇后</td>
+<td>善終</td>
+<td>竇嬰</td>
+<td>武帝處死</td>
+</tr>
+<tr>
+<td>漢景帝</td>
+<td>孝景王皇后</td>
+<td>善終</td>
+<td>田蚡</td>
+<td>暴病索命死</td>
+</tr>
+<tr>
+<td>漢武帝</td>
+<td>孝武陳皇后</td>
+<td>打入冷宮</td>
+<td>無</td>
+<td></td>
+</tr>
+<tr>
+<td>漢武帝</td>
+<td>衛子夫</td>
+<td>死於巫蠱之禍</td>
+<td>衛青</td>
+<td>善終</td>
+</tr>
+<tr>
+<td>漢武帝</td>
+<td>鉤弋夫人</td>
+<td>立子殺母</td>
+<td>無</td>
+<td></td>
+</tr>
+<tr>
+<td>戾太子</td>
+<td>史良娣</td>
+<td>死於巫蠱之禍</td>
+<td>史恭</td>
+<td>未成外戚集團，善終</td>
+</tr>
+<tr>
+<td>漢昭帝</td>
+<td>上官皇后</td>
+<td>善終</td>
+<td>上官桀、上官安</td>
+<td>燕蓋之亂誅</td>
+</tr>
+<tr>
+<td>劉賀</td>
+<td>李夫人(太后)</td>
+<td>早死</td>
+<td>李延年、李廣利</td>
+<td>李廣利降匈奴</td>
+</tr>
+<tr>
+<td>漢宣帝</td>
+<td>許平君</td>
+<td>被霍顯毒殺</td>
+<td>許廣漢、許舜、許延壽、許嘉</td>
+<td>均善終</td>
+</tr>
+<tr>
+<td>漢宣帝</td>
+<td>霍成君</td>
+<td>霍禹之亂族誅</td>
+<td>霍光、霍禹</td>
+<td>霍禹之亂族誅</td>
+</tr>
+<tr>
+<td>漢宣帝</td>
+<td>邛成太后</td>
+<td>善終</td>
+<td>王奉光</td>
+<td>善終</td>
+</tr>
+<tr>
+<td>漢元帝</td>
+<td>王政君</td>
+<td>善終</td>
+<td>王鳳、王莽</td>
+<td>建立新朝</td>
+</tr>
+<tr>
+<td>漢元帝</td>
+<td>馮婕妤(妃)</td>
+<td>被史立誣死</td>
+<td>馮逡、馮野王</td>
+<td>善終</td>
+</tr>
+<tr>
+<td>漢成帝</td>
+<td>孝成許皇后</td>
+<td>被廢、賜死</td>
+<td>無(許嘉後裔)</td>
+<td></td>
+</tr>
+<tr>
+<td>漢成帝</td>
+<td>趙飛燕</td>
+<td>平帝時自殺</td>
+<td>趙臨、趙欽</td>
+<td>未成外戚集團，不明</td>
+</tr>
+<tr>
+<td>漢哀帝</td>
+<td>丁姬(太后)</td>
+<td>死後被王莽虐尸</td>
+<td>丁明、丁望、丁滿</td>
+<td>未成外戚集團，不明</td>
+</tr>
+<tr>
+<td>漢哀帝</td>
+<td>孝哀傅皇后</td>
+<td>平帝時被王莽廢而自殺</td>
+<td>傅晏、傅喜</td>
+<td>善終</td>
+</tr>
+<tr>
+<td>漢平帝</td>
+<td>衛姬(太后)</td>
+<td>日夜啼泣</td>
+<td>無</td>
+<td></td>
+</tr>
+<tr>
+<td>漢平帝</td>
+<td>孝平王皇后</td>
+<td>新滅時自焚</td>
+<td>王莽</td>
+<td>建立新朝</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="50806-%E7%AB%87%E6%86%B2%E5%88%BA%E5%8A%89%E6%9A%A2%E5%8F%8A%E9%84%A7%E8%A8%93%E5%B9%B3%E7%87%92%E7%95%B6">50806 竇憲刺劉暢及鄧訓平燒當</h2>
+
+<blockquote>
+<p>会齐殇王子都乡侯畅来吊国忧-&gt;分以屯田、修理坞壁而已</p>
+</blockquote>
+<ul>
+<li>燕然勒石連環問
+<ul>
+<li>北匈奴孱弱，擊之無益，為什麼要勞師遠征？</li>
+<li>因為竇憲要贖罪。竇憲有什麼罪？</li>
+<li>殺人。為什麼不償命，還能去當將軍？</li>
+<li>因為他是太后的哥哥，殺的是太后的情人。</li>
+</ul>
+</li>
+<li>缝革为船，置于箄上以渡河：鄧訓製羊皮筏子破迷唐</li>
+</ul>
+<h2 class="mume-header" id="50807-%E7%9C%BE%E8%AB%AB%E4%B8%8D%E5%BE%81%E5%8C%97%E5%8C%88%E5%A5%B4%E4%B8%8D%E8%81%BD">50807 眾諫不征北匈奴不聽</h2>
+
+<blockquote>
+<p>窦宪将征匈奴-&gt;寿，恽之子也</p>
+</blockquote>
+<h2 class="mume-header" id="50808-%E7%87%95%E7%84%B6%E5%8B%92%E7%9F%B3%E5%8F%8A%E7%AB%87%E6%B0%8F%E5%AC%8C%E7%B8%B1">50808 燕然勒石及竇氏嬌縱</h2>
+
+<blockquote>
+<p>夏，六月，窦宪、耿秉出朔方鸡鹿塞-&gt;无所嫌牾焉</p>
+</blockquote>
+<h2 class="mume-header" id="50809-%E9%80%80%E8%B2%B4%E9%9C%9C%E5%8F%8A%E9%87%91%E5%BE%AE%E5%B1%B1%E4%B9%8B%E6%88%B0">50809 退貴霜及金微山之戰</h2>
+
+<blockquote>
+<p>冬，十月，庚子，阜陵质王延薨-&gt;封夔为粟邑侯</p>
+</blockquote>
+<h2 class="mume-header" id="50810-%E7%AB%87%E6%86%B2%E5%B0%88%E6%AC%8A%E5%BB%A2%E7%AB%8B%E9%BE%9C%E8%8C%B2%E7%AB%8B%E6%96%BC%E9%99%A4%E9%9E%AC">50810 竇憲專權廢立龜茲立於除鞬</h2>
+
+<blockquote>
+<p>窦宪既立大功-&gt;然上竟从宪策</p>
+</blockquote>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>
