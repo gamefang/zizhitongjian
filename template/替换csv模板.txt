@@ -1,7 +1,0 @@
-1.安装csvtotable
-pip install csvtotable
-
-2.进入文件夹，找到template.j2文件
-*Python目录*\Lib\site-packages\csvtotable\templates\template.j2
-
-3.备份源文件，修改样式后保存即可
