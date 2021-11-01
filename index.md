@@ -1,9 +1,9 @@
-# 資治通鑑
+---
+export_on_save:
+    html: true
+---
 
-> 筆記、整理、數據化
-
-> 制作：[gamefang](https://gamefang.github.io/)
-
+@import "README.md"
 ---
 
 ## 1 主要數據
