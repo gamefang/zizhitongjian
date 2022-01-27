@@ -7,7 +7,7 @@ cd ..
 
 REM 1 -------------------
 cd 1_主要數據
-	csvtotable 通鑑目錄.csv 通鑑目錄.html -o -c 通鑑目錄 -e -dl 100
+	csvtotable 通鑑目錄.csv 通鑑目錄.html -o -c 通鑑目錄 -vs -1 -e -dl 100
 	csvtotable 人物總表.csv 人物總表.html -o -c 人物總表 -vs -1 -e -dl 100
 	REM csvtotable 事件表.csv 事件表.html -o -c 事件表 -e -dl 100
 	cd 政權年代表
