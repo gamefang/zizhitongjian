@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # python3.7+
 # 处理csvtotable的模板(一次性)
+# csvtotable安装完无法使用的话，需添加环境变量，大概位于：C:\Users\XXX\AppData\Roaming\Python\Python37\Scripts
 
 import os
 import shutil
