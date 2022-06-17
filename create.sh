@@ -30,17 +30,17 @@ cd ..
 # cd ..
 
 # 3 -------------------
-cd 3_年代專項
-	cd 3.5_東漢
-		csvtotable 東漢末年勢力列表.csv 東漢末年勢力列表.html -o -c 東漢末年勢力列表 -e
-	cd ..
-cd ..
+# cd 3_年代專項
+	# cd 3.5_東漢
+		# csvtotable 東漢末年勢力列表.csv 東漢末年勢力列表.html -o -c 東漢末年勢力列表 -e
+	# cd ..
+# cd ..
 
 # 4 -------------------
-cd 4_通用專項
-	csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
-	csvtotable 年號總表.csv 年號總表.html -o -c 年號總表 -vs -1 -e -dl 100
-cd ..
+# cd 4_通用專項
+	# csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
+	# csvtotable 年號總表.csv 年號總表.html -o -c 年號總表 -vs -1 -e -dl 100
+# cd ..
 
 echo "Press any key to exit..."
 read -n 1
