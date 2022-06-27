@@ -37,10 +37,10 @@ cd ..
 # cd ..
 
 # 4 -------------------
-# cd 4_通用專項
-	# csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
-	# csvtotable 年號總表.csv 年號總表.html -o -c 年號總表 -vs -1 -e -dl 100
-# cd ..
+cd 4_通用專項
+	csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
+	csvtotable 年號總表.csv 年號總表.html -o -c 年號總表 -vs -1 -e -dl 100
+cd ..
 
 echo "Press any key to exit..."
 read -n 1
