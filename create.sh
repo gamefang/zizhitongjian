@@ -1,5 +1,5 @@
 #!/bin/bash
-# 复制bat中内容，替换 # 为 # 即可
+# 复制bat中内容，替换 REM 为 # 即可
 
 # 验证模板
 cd template
@@ -7,14 +7,19 @@ cd template
 cd ..
 
 # 1 -------------------
-cd 1_主要數據
-	csvtotable 通鑑目錄.csv 通鑑目錄.html -o -c 通鑑目錄 -vs -1 -e -dl 100
-	csvtotable 人物總表.csv 人物總表.html -o -c 人物總表 -vs -1 -e -dl 100
-	# csvtotable 事件表.csv 事件表.html -o -c 事件表 -e -dl 100
-	cd 政權年代表
+cd 1_數據表
+	cd 1.1_通鑑目録
+		csvtotable 時代表.csv 時代表.html -o -c 時代表 -e
+		csvtotable 卷目表.csv 卷目表.html -o -c 卷目表 -e
+		csvtotable 章節表.csv 章節表.html -o -c 章節表 -vs -1 -e -dl 100
+	cd ..
+	cd 1.2_政權年代表
 		csvtotable 戰國秦.csv 戰國秦.html -o -c 戰國秦 -e
 		csvtotable 漢.csv 漢.html -o -c 漢 -e
 		csvtotable 魏晉南北朝.csv 魏晉南北朝.html -o -c 魏晉南北朝 -e
+	cd ..
+	cd 1.3_各類通表
+		csvtotable 人物總表.csv 人物總表.html -o -c 人物總表 -vs -1 -e -dl 100
 	cd ..
 cd ..
 
