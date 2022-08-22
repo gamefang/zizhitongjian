@@ -24,27 +24,24 @@ cd 1_數據表
 cd ..
 
 # 2 -------------------
-# cd 2_世系圖表
-	# cd 2.1_中國
-	# cd ..
-	# cd 2.2_四夷
-		# csvtotable 匈奴世系表.csv 匈奴世系表.html -o -c 匈奴世系表 -e
-	# cd ..
-	# cd 2.9_雜項
-	# cd ..
-# cd ..
+
+csvtotable 2_世系圖表/2.2_并立政權/秦朝楚漢/秦末楚漢政權.csv 2_世系圖表/2.2_并立政權/秦朝楚漢/秦末楚漢政權.html -o -c 秦末楚漢政權 -e
+csvtotable 2_世系圖表/2.2_并立政權/漢/東漢末年勢力列表.csv 2_世系圖表/2.2_并立政權/漢/東漢末年勢力列表.html -o -c 東漢末年勢力列表 -e
 
 # 3 -------------------
-# cd 3_年代專項
-	# cd 3.5_東漢
-		# csvtotable 東漢末年勢力列表.csv 東漢末年勢力列表.html -o -c 東漢末年勢力列表 -e
-	# cd ..
-# cd ..
+csvtotable 3_專項研究/3.1_時代/西漢/西漢開國功臣列表.csv 3_專項研究/3.1_時代/西漢/西漢開國功臣列表.html -o -c 西漢開國功臣列表 -e
+csvtotable 3_專項研究/3.1_時代/西漢/張騫通西域諸國概況.csv 3_專項研究/3.1_時代/西漢/張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
+csvtotable 3_專項研究/3.1_時代/新/王莽寶貨制.csv 3_專項研究/3.1_時代/新/王莽寶貨制.html -o -c 王莽寶貨制 -e
+csvtotable 3_專項研究/3.1_時代/東漢/雲臺二十八將表.csv 3_專項研究/3.1_時代/東漢/雲臺二十八將表.html -o -c 雲臺二十八將表 -e
 
-# 4 -------------------
-cd 4_通用專項
-	csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
+cd 3_專項研究/3.2_通用
+	csvtotable 粗線條歷史朝代表.csv 粗線條歷史朝代表.html -o -c 粗線條歷史朝代表 -e
 	csvtotable 年號總表.csv 年號總表.html -o -c 年號總表 -vs -1 -e -dl 100
+	csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
+	csvtotable 被詛咒的趙王.csv 被詛咒的趙王.html -o -c 被詛咒的趙王 -e
+	csvtotable 百越各國.csv 百越各國.html -o -c 百越各國 -e
+	csvtotable 匈奴語對照表.csv 匈奴語對照表.html -o -c 匈奴語對照表 -e
+cd ..
 cd ..
 
 echo "Press any key to exit..."
