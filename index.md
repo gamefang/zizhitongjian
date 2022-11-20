@@ -8,8 +8,6 @@ export_on_save:
 <details>
 <summary>TODO</summary>
 筆記內圖表摘出
-東漢世系表
-曹魏、蜀漢、孫吳世系表
 晉國六卿待整理
 </details>
 
@@ -206,3 +204,12 @@ graph LR
 
 資治通鑑---筆記
 ``` -->
+
+> 制作：[gamefang](https://gamefang.github.io/)
+
+- 全部內容為個人讀書筆記及整理研究，不考慮準確性與全面性
+- 鳴謝
+    - [github](https://github.com/)：代碼托管網站，感謝其支持存儲及展示靜態頁面
+    - [mermaid](https://mermaid-js.github.io/mermaid/#/)：可嵌入markdown的圖表快速製作工具
+    - [markdown preview enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/)：markdown插件，即時預覽及轉html
+    - [csvtotable](https://pypi.org/project/csvtotable/)：Python擴展包，csv轉html，支持分頁、搜索、排序等功能
