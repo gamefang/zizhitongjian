@@ -2,17 +2,20 @@
 # 人物總表相關的分析工具
 
 import csv
+import os
 
 # 輸入的查詢字符串
 QUERY_STR = '人物組合：湯武'
 
 # 人物總表文件路徑
-FP_PERSON = '../1_數據表/1.3_各類通表/人物總表.csv'
+FP = '1_數據表/1.3_各類通表/人物總表.csv'
 # 必定模糊匹配的字段
 ONLY_NOT_EXACT_PARAMS = ['簡述', '記載年備註', '備註']
 
+# 路徑修正
+FP = os.path.join(os.path.dirname(os.path.dirname(__file__)), FP)
 
-def load_data(fp):
+def load_data_as_dict(fp):
     '''
     加載csv數據為嵌套字典，格式：
     {
@@ -146,38 +149,42 @@ def view_check_name(dic_person):
     '''
     check_name方法的輸出
     '''
+    result = ''
     wrong_name_keys = check_name(dic_person)
     if len(wrong_name_keys) != 0:
-        print('檢查到可能重複的慣用名：')
+        result += '檢查到可能重複的慣用名：\n'
         for item in wrong_name_keys:
-            print(f'{item} {dic_person[item]["慣用名"]}')
+            result += f'{item} {dic_person[item]["慣用名"]}\n'
+    return result[:-1]
 
 def view_query(dic_person, query_str):
     '''
     query方法的輸出
     '''
+    result = ''
     query_mode, exact_key, likely, relative = query(dic_person, query_str)
     if query_mode == 1:
         if exact_key != 0:
-            print(f'【{query_str}】的索引號：{exact_key}')
+            result += f'【{query_str}】的索引號：{exact_key}\n'
         if len(likely) != 0:
-            print(f'【{query_str}】可能是：')
+            result += f'【{query_str}】可能是：\n'
             for item in likely:
-                print(f'{item} {dic_person[item]["慣用名"]}')
+                result += f'{item} {dic_person[item]["慣用名"]}\n'
         if len(relative) != 0:
-            print(f'【{query_str}】相關人物：')
+            result += f'【{query_str}】相關人物：\n'
             for item in relative:
-                print(f'{item} {dic_person[item]["慣用名"]}')
+                result += f'{item} {dic_person[item]["慣用名"]}\n'
     elif query_mode == 2:
-        print(f'【{query_str}】的符合的索引：')
+        result += f'【{query_str}】的符合的索引：\n'
         for item in likely:
-            print(f'{item} {dic_person[item]["慣用名"]}')
+            result += f'{item} {dic_person[item]["慣用名"]}\n'
+    return result[:-1]
 
             
 if __name__ == '__main__':
     # 加載數據
-    dic_person = load_data(FP_PERSON)
+    dic_person = load_data_as_dict(FP)
     # 檢查慣用名是否有重複
-    view_check_name(dic_person)
+    print(view_check_name(dic_person))
     # 人物查找
-    view_query(dic_person, QUERY_STR)
+    print(view_query(dic_person, QUERY_STR))
