@@ -14,7 +14,7 @@ NUM_IN_HAN = '十一二三四五六七八九'
 NUM_UNIQUE = {1:'元',10:'十',11:'十一',12:'十二',13:'十三',14:'十四',15:'十五',16:'十六',17:'十七',18:'十八',19:'十九'}
 
 # 路徑修正
-FP = os.path.join(os.path.dirname(os.path.dirname(__file__)), FP)
+FP = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), FP)
 
 def load_data_as_dict(fp):
     '''

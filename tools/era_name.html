@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年號查詢工具</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    pre {
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+</style>
+</head>
+<body>
+    
+<p><a href="../index.html">返回首頁</a></p>
+
+<h2>年號查詢工具</h2>
+
+<p>輸入公元年，可以查詢到<a href="../1_數據表/1.3_各類通表/年號總表.html">年號總表</a>中所記録的所有當年年號的信息。<br/></p>
+
+<input type="text" id="searchQuery" placeholder="輸入有效的公元年數字">
+<button onclick="era_name()">查詢</button><br><br>
+
+<h3>結果：</h3>
+<pre id="results"></pre>
+
+<!-- js數據 -->
+<script src="raw_data/data_era_name.js"></script>
+<!-- js代碼 -->
+<script src="era_name.js"></script>
+</body>
+</html>

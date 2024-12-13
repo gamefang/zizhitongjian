@@ -5,7 +5,7 @@ import csv
 import os
 
 # 輸入的查詢字符串
-QUERY_STR = '人物組合：湯武'
+QUERY_STR = '王彌'
 
 # 人物總表文件路徑
 FP = '1_數據表/1.3_各類通表/人物總表.csv'
@@ -13,7 +13,7 @@ FP = '1_數據表/1.3_各類通表/人物總表.csv'
 ONLY_NOT_EXACT_PARAMS = ['簡述', '記載年備註', '備註']
 
 # 路徑修正
-FP = os.path.join(os.path.dirname(os.path.dirname(__file__)), FP)
+FP = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), FP)
 
 def load_data_as_dict(fp):
     '''

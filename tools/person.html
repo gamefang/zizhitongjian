@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人物總表查詢工具</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    pre {
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+</style>
+</head>
+<body>
+    
+<p><a href="../index.html">返回首頁</a></p>
+
+<h2>人物總表查詢工具</h2>
+
+<p>實現<a href="../1_數據表/1.3_各類通表/人物總表.html">人物總表</a>內的查詢功能：<br/>
+XXX -> 輸入任意姓名，查詢並列出準確的通鑑人物，以及可能的人物，以及與其相關聯的人物。<br/>
+字段名：XXX -> 以 字段名：內容 的方式查詢詞條，如輸入 統治政權：新朝 ，可列舉所有統治新朝的人物詞條。<br/>
+JavaScript腳本目前有誤，僅支持匹配精確地索引號，待修改。<br/></p>
+
+<input type="text" id="searchQuery" placeholder="輸入待查詢的內容">
+<button onclick="person()">查詢</button><br><br>
+
+<h3>結果：</h3>
+<pre id="results"></pre>
+
+<!-- js數據 -->
+<script src="raw_data/data_person.js"></script>
+<!-- js代碼 -->
+<script src="person.js"></script>
+</body>
+</html>

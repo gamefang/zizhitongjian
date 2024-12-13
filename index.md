@@ -5,6 +5,9 @@ export_on_save:
 
 # 資治通鑑學習筆記
 
+> 基於數據製作的一些速查工具
+> [年號查詢](./tools/era_name.html) | [人物總表查詢](./tools/person.html)
+
 ## 1 數據表
 
 <details open>

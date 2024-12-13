@@ -1,9 +1,11 @@
 #!/bin/bash
 # 复制bat中内容，替换 REM 为 # 即可
 
+cd utils
 # 验证模板
-cd template
 	python update_template.py
+# 同步js需要使用的data
+	python sync_js_data.py
 cd ..
 
 # 1 -------------------
