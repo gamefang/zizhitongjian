@@ -36,62 +36,90 @@ function load_data_as_dict(csvData) {
     return dicPerson;
 }
 
-// 检查慣用名是否有重复
-function checkName(dicPerson) {
-    /*
-    檢查慣用名是否有重複，返回可能有問題的所有相關索引編號
-    */
-    let listNames = [];
-    let wrongKeys = [];
-    let dicPersonKeys = Object.keys(dicPerson);
-    
-    for (let key in dicPerson) {
-        let name = dicPerson[key]["慣用名"];
-        if (listNames.includes(name)) {  // 重複出現
-            let usedIndex = listNames.indexOf(name);
-            let usedKey = dicPersonKeys[usedIndex];
-            if (!wrongKeys.includes(usedKey)) {
-                wrongKeys.push(usedKey);
-            }
-            wrongKeys.push(key);
-        }
-        listNames.push(name); // 添加所有，確保下標對齊
-    }
-    return wrongKeys;
-}
-
-// 查询功能
 function query(dic_person, input_str) {
     /*
     人物表內的查詢功能
-    XXX -> 姓名查詢模式1：僅針對姓名進行查詢，返回：(1, 精確索引號, 可能的索引號列表, 相關的索引號列表)
-    字段名：XXX -> 字段查詢模式2：找到固定字段符合表達式的內容，返回：(2, 0, 索引號列表, None)
     */
     let query_mode = 0;
     let exact_key = 0;
     let likely = new Set();
     let relative = new Set();
-    
     // 確定查詢模式
-    input_str = input_str.trim().replace('：', ":"); // 也支持中文冒號
-    let param_name = '';
-    let query_str = input_str;
-    
-    if (input_str.includes(':')) {
-        [param_name, query_str] = input_str.split(':').map(s => s.trim());
+    input_str = input_str.trim().replace('：', ":");    // 也支持中文冒號
+    if (input_str.startsWith('*')) {   // 模糊匹配
+        query_mode = 5;
+        let query_str = input_str.slice(1);
+
+        for (let [key, value] of Object.entries(dic_person)) {   // 精確匹配索引號或慣用名
+            if (_is_exact(query_str, key, value)) {
+                exact_key = key;
+                continue;
+            }
+            // 非精確匹配情況
+            for (let [k, v] of Object.entries(value)) {
+                if (v.includes(query_str)) {
+                    likely.add(key);
+                }
+            }
+        }
+    } else if (input_str.startsWith('@')) { // 顯示詳情
+        query_mode = 3;
+        let query_str = input_str.slice(1);
+
+        for (let [key, value] of Object.entries(dic_person)) {
+            if (_is_exact(query_str, key, value)) {
+                exact_key = key;
+                break;
+            }
+        }
+    } else if (input_str.includes('and')) { // 邏輯篩選
+        query_mode = 4;
+        let list_input = input_str.split('and');
+        let list_query = list_input.map(input => query(dic_person, input)); // 遞歸調用字段篩選
+        let non_empty_set = list_query.map(s => s[2]).filter(s => s.size > 0);
+        if (non_empty_set.length > 0) {
+            likely = new Set([...non_empty_set.reduce((acc, curr) => {
+                return [...acc].filter(x => curr.has(x));
+            })]);   // 交集
+        }
+    } else if (input_str.includes('or')) { // 邏輯篩選
+        query_mode = 4;
+        let list_input = input_str.split('or');
+        let list_query = list_input.map(input => query(dic_person, input)); // 遞歸調用字段篩選
+        let non_empty_set = list_query.map(s => s[2]).filter(s => s.size > 0);
+        if (non_empty_set.length > 0) {
+            likely = new Set([...non_empty_set.reduce((acc, curr) => {
+                return [...acc, ...curr];
+            })]);   // 並集
+        }
+    } else if (input_str.includes(':')) {  // 字段篩選
+        query_mode = 2;
+        let [param_name, query_str] = input_str.split(':');
+
+        param_name = param_name.trim();
         if (!(param_name in dic_person[1])) {
             console.log(`【${param_name}】字段名不存在！`);
-            return [query_mode, exact_key, Array.from(likely), Array.from(relative)];
+            return [query_mode, exact_key, likely, relative];
         }
         query_str = query_str.trim();
-    }
-    
-    // 姓名查詢模式
-    if (param_name === '') {
+
+        for (let [key, value] of Object.entries(dic_person)) {
+            let is_exact = true; // 默認精確匹配
+            if (ONLY_NOT_EXACT_PARAMS.includes(param_name)) {  // 除部分字段只能模糊匹配
+                is_exact = false;
+            }
+            if (_match(query_str, value[param_name], is_exact)) {
+                likely.add(key);
+            }
+        }
+    } else {   // 人物定位
         query_mode = 1;
-        for (const [key, value] of Object.entries(dic_person)) {
+        let param_name = '';
+        let query_str = input_str;
+
+        for (let [key, value] of Object.entries(dic_person)) {
             // 找精確索引號
-            if (_match(query_str, value['慣用名'], true)) { // 精確匹配慣用名
+            if (_is_exact(query_str, key, value)) {
                 exact_key = key;
                 continue;
             }
@@ -119,50 +147,55 @@ function query(dic_person, input_str) {
             }
         }
     }
-    // 字段查詢模式
-    else {
-        query_mode = 2;
-        for (const [key, value] of Object.entries(dic_person)) {
-            let is_exact = true; // 默認精確匹配
-            if (ONLY_NOT_EXACT_PARAMS.includes(param_name)) { // 除部分字段只能模糊匹配
-                is_exact = false;
-            }
-            if (_match(query_str, value[param_name], is_exact)) {
-                likely.add(key);
-            }
-        }
-    }
-    return [query_mode, exact_key, Array.from(likely), Array.from(relative)];
+    return [query_mode, exact_key, likely, relative];
 }
 
-// 判断输入内容是否符合条件
-function _match(input, check, isExact = true) {
+function _match(input, check, is_exact = true) {
     /*
     判斷輸入內容是否符合條件
     input: 輸入條件
     check: 待檢查條件，可能為以|分隔的數組
-    isExact: 是否精確匹配字符串
+    is_exact: 是否精確匹配字符串
     return: bool
     */
-    if (check.includes('|')) { // 數組
-        const listCheck = check.split('|');
-        if (isExact) {
-            return listCheck.includes(input);
+    if (typeof input === 'number') {  // 數值
+        if (is_exact) {
+            return input === check;
         } else {
-            for (const item of listCheck) {
-                if (item.includes(input)) {
-                    return true;
-                }
-            }
-            return false;
+            return String(input).includes(String(check));
         }
-    } else { // 單一    
-        if (isExact) {
+    } else if (check.includes('|')) {    // 數組
+        let list_check = check.split('|');
+        if (is_exact) {
+            return list_check.includes(input);
+        } else {
+            return list_check.some(item => item.includes(input));
+        }
+    } else {   // 單一    
+        if (is_exact) {
             return input === check;
         } else {
             return check.includes(input);
         }
     }
+}
+
+function _is_exact(queryStr, key, value) {
+    /*
+    判斷是否精確匹配
+    queryStr: 查詢字符串或數值
+    key: 數據字典條目的key
+    value: 數據字典條目的value
+    return: bool
+    */
+    const isNum = !isNaN(queryStr);
+    if (isNum && _match(parseInt(queryStr), key, true)) { // 精確匹配索引號
+        return true;
+    }
+    if (!isNum && _match(queryStr, value['慣用名'], true)) { // 精確匹配慣用名
+        return true;
+    }
+    return false;
 }
 
 function view_query(dicPerson, queryStr) {
@@ -171,29 +204,39 @@ function view_query(dicPerson, queryStr) {
     */
     let result = '';
     const [queryMode, exactKey, likely, relative] = query(dicPerson, queryStr);
-    if (queryMode === 1) {
+    if (queryMode === 1) { // 人物定位
         if (exactKey !== 0) {
-            result += `【${queryStr}】的索引號：${exactKey}\n`;
+            result += `【${queryStr}】的索引號：${exactKey} 慣用名：${dicPerson[exactKey]['慣用名']}\n`;
         }
         if (likely.length !== 0) {
             result += `【${queryStr}】可能是：\n`;
             for (const item of likely) {
-                result += `${item} ${dicPerson[item]["慣用名"]}\n`;
+                result += `${item} ${dicPerson[item]['慣用名']}\n`;
             }
         }
         if (relative.length !== 0) {
             result += `【${queryStr}】相關人物：\n`;
             for (const item of relative) {
-                result += `${item} ${dicPerson[item]["慣用名"]}\n`;
+                result += `${item} ${dicPerson[item]['慣用名']}\n`;
             }
         }
-    } else if (queryMode === 2) {
+    } else if ([2, 4, 5].includes(queryMode)) { // 字段篩選、邏輯篩選、模糊匹配
         result += `【${queryStr}】的符合的索引：\n`;
         for (const item of likely) {
-            result += `${item} ${dicPerson[item]["慣用名"]}\n`;
+            result += `${item} ${dicPerson[item]['慣用名']}\n`;
+        }
+    } else if (queryMode === 3) { // 顯示詳情
+        if (exactKey !== 0) {
+            result += `【${queryStr}】的索引號：${exactKey}\n`;
+            const data = dicPerson[exactKey];
+            for (const [key, value] of Object.entries(data)) {
+                if (value !== '') {
+                    result += `${key}：${value}\n`;
+                }
+            }
         }
     }
-    return result.slice(0, -1);
+    return result.slice(0, -1) || '未找到數據！';
 }
 
 // 执行查询
@@ -202,5 +245,16 @@ function person() {
     const resultsDiv = document.getElementById('results');
     const data = load_data_as_dict(RAW_DATA);
     const result = view_query(data, inputStr);
-    resultsDiv.textContent = result || '未找到任何數據！';
+    resultsDiv.textContent = result;
 }
+
+// 按鈕綁定回車按鍵
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('searchQuery').addEventListener('keypress', function(event) {
+        // 检查按下的是否是回车键
+        if (event.key === "Enter") {
+            event.preventDefault();
+            person();
+        }
+    });
+});

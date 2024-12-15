@@ -55,3 +55,14 @@ function era_name() {
     const result = query(data, inputStr);
     resultsDiv.textContent = result || '未找到任何數據！';
 }
+
+// 按鈕綁定回車按鍵
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('searchQuery').addEventListener('keypress', function(event) {
+        // 检查按下的是否是回车键
+        if (event.key === "Enter") {
+            event.preventDefault();
+            era_name();
+        }
+    });
+});
