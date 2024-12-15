@@ -189,7 +189,7 @@ function _is_exact(queryStr, key, value) {
     return: bool
     */
     const isNum = !isNaN(queryStr);
-    if (isNum && _match(parseInt(queryStr), key, true)) { // 精確匹配索引號
+    if (isNum && _match(parseInt(queryStr), parseInt(key), true)) { // 精確匹配索引號
         return true;
     }
     if (!isNum && _match(queryStr, value['慣用名'], true)) { // 精確匹配慣用名
