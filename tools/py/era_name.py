@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 # 年號總表相關的分析工具
 
-import csv
-import os
+from common import *    # 部分通用方法
 
 # 輸入的查詢字符串
 QUERY_STR = '250'
@@ -14,11 +13,11 @@ NUM_IN_HAN = '十一二三四五六七八九'
 NUM_UNIQUE = {1:'元',10:'十',11:'十一',12:'十二',13:'十三',14:'十四',15:'十五',16:'十六',17:'十七',18:'十八',19:'十九'}
 
 # 路徑修正
-FP = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), FP)
+FP = this_to_main_page(FP)
 
-def load_data_as_dict(fp):
+def load_data_as_dict(csv_data):
     '''
-    加載csv數據為嵌套字典，格式：
+    加載csv多行文本數據為嵌套字典，格式：
     {
         1 : {'起始年': '-179', '結束年': '-164', ...},
         2 : {'起始年': '-163', '結束年': '-157', ...},
@@ -27,16 +26,17 @@ def load_data_as_dict(fp):
     '''
     dic_era = {}
     list_params = []
-    with open(fp, encoding='utf8', newline='') as f:
-        reader = csv.reader(f)
-        for i, row in enumerate(reader):
-            if i == 0:
-                list_params = row
-            else:
-                dic_era[i] = {
-                    list_params[n] : row[n]
-                    for n in range(0, len(list_params) - 1)
-                }
+    lines = csv_data.split('\n')
+    lines = [line.strip() for line in lines if line.strip()]
+    for i, row in enumerate(lines):
+        row_items = row.split(',')
+        if i == 0:
+            list_params = row_items
+        else:
+            dic_era[i] = {
+                list_params[n] : row_items[n]
+                for n in range(0, len(list_params) - 1)
+            }
     return dic_era
 
 def query(dic_era, input_str):
@@ -70,6 +70,7 @@ def year_delta(input_year, comp_year):
     
 if __name__ == '__main__':
     # 加載數據
-    dic_era = load_data_as_dict(FP)
+    result_str = csv_loader(FP)
+    dic_era = load_data_as_dict(result_str)
     # 年號查詢
     print(query(dic_era, QUERY_STR))

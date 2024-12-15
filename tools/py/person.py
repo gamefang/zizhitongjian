@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 # 人物總表相關的分析工具
 
-import csv
-import os
+from common import *    # 部分通用方法
 
 # 輸入的查詢字符串
 QUERY_STR = '王彌'
@@ -13,11 +12,11 @@ FP = '1_數據表/1.3_各類通表/人物總表.csv'
 ONLY_NOT_EXACT_PARAMS = ['簡述', '記載年備註', '備註']
 
 # 路徑修正
-FP = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), FP)
+FP = this_to_main_page(FP)
 
-def load_data_as_dict(fp):
+def load_data_as_dict(csv_data):
     '''
-    加載csv數據為嵌套字典，格式：
+    加載csv多行文本數據為嵌套字典，格式：
     {
         1 : {'慣用名': '周威烈王', '通鑑目録': '10101', ...},
         2 : {'慣用名': '魏文侯', '通鑑目録': '10101', ...},
@@ -27,22 +26,23 @@ def load_data_as_dict(fp):
     dic_person = {}
     list_params = []
     nokey_count = 1
-    with open(fp, encoding='utf8', newline='') as f:
-        reader = csv.reader(f)
-        for i, row in enumerate(reader):
-            if i == 0:
-                list_params = row
-            else:
-                key = int(row[0])
-                if key == -1:   # 默認無編號索引
-                    key = f'x{nokey_count}'
-                    nokey_count += 1
-                elif key in dic_person.keys():  # 重複索引號
-                    print(f'WARNING: key {key} used more than one time!')
-                dic_person[key] = {
-                    list_params[n] : row[n]
-                    for n in range(1, len(list_params))
-                }
+    lines = csv_data.split('\n')
+    lines = [line.strip() for line in lines if line.strip()]
+    for i, row in enumerate(lines):
+        row_items = row.split(',')
+        if i == 0:
+            list_params = row_items
+        else:
+            key = int(row_items[0])
+            if key == -1:   # 默認無編號索引
+                key = f'x{nokey_count}'
+                nokey_count += 1
+            elif key in dic_person.keys():  # 重複索引號
+                print(f'WARNING: key {key} used more than one time!')
+            dic_person[key] = {
+                list_params[n] : row_items[n]
+                for n in range(1, len(list_params))
+            }
     return dic_person
 
 def check_name(dic_person):
@@ -183,7 +183,8 @@ def view_query(dic_person, query_str):
             
 if __name__ == '__main__':
     # 加載數據
-    dic_person = load_data_as_dict(FP)
+    result_str = csv_loader(FP)
+    dic_person = load_data_as_dict(result_str)
     # 檢查慣用名是否有重複
     print(view_check_name(dic_person))
     # 人物查找
