@@ -46,9 +46,9 @@ function query(dic_person, input_str) {
     let relative = new Set();
     // 確定查詢模式
     input_str = input_str.trim().replace('：', ":");    // 也支持中文冒號
-    if (input_str.startsWith('*')) {   // 模糊匹配
+    if (input_str.startsWith('*') || input_str.endsWith('*')) {   // 模糊匹配
         query_mode = 5;
-        let query_str = input_str.slice(1);
+        let query_str = input_str.replace(/\*/g, '');
 
         for (let [key, value] of Object.entries(dic_person)) {   // 精確匹配索引號或慣用名
             if (_is_exact(query_str, key, value)) {
@@ -62,9 +62,9 @@ function query(dic_person, input_str) {
                 }
             }
         }
-    } else if (input_str.startsWith('@')) { // 顯示詳情
+    } else if (input_str.startsWith('@') || input_str.endsWith('@')) { // 顯示詳情
         query_mode = 3;
-        let query_str = input_str.slice(1);
+        let query_str = input_str.replace(/@/g, '');
 
         for (let [key, value] of Object.entries(dic_person)) {
             if (_is_exact(query_str, key, value)) {
@@ -160,7 +160,7 @@ function _match(input, check, is_exact = true) {
     */
     if (typeof input === 'number') {  // 數值
         if (is_exact) {
-            return input === check;
+            return String(input) === String(check);
         } else {
             return String(input).includes(String(check));
         }
@@ -189,7 +189,7 @@ function _is_exact(queryStr, key, value) {
     return: bool
     */
     const isNum = !isNaN(queryStr);
-    if (isNum && _match(parseInt(queryStr), parseInt(key), true)) { // 精確匹配索引號
+    if (isNum && _match(parseInt(queryStr), key, true)) { // 精確匹配索引號
         return true;
     }
     if (!isNum && _match(queryStr, value['慣用名'], true)) { // 精確匹配慣用名
@@ -208,20 +208,20 @@ function view_query(dicPerson, queryStr) {
         if (exactKey !== 0) {
             result += `【${queryStr}】的索引號：${exactKey} 慣用名：${dicPerson[exactKey]['慣用名']}\n`;
         }
-        if (likely.length !== 0) {
-            result += `【${queryStr}】可能是：\n`;
+        if (likely.size !== 0) {
+            result += `【${queryStr}】可能是(${likely.size})：\n`;
             for (const item of likely) {
                 result += `${item} ${dicPerson[item]['慣用名']}\n`;
             }
         }
-        if (relative.length !== 0) {
-            result += `【${queryStr}】相關人物：\n`;
+        if (relative.size !== 0) {
+            result += `【${queryStr}】相關人物(${relative.size})：\n`;
             for (const item of relative) {
                 result += `${item} ${dicPerson[item]['慣用名']}\n`;
             }
         }
     } else if ([2, 4, 5].includes(queryMode)) { // 字段篩選、邏輯篩選、模糊匹配
-        result += `【${queryStr}】的符合的索引：\n`;
+        result += `【${queryStr}】的符合的索引(${likely.size})：\n`;
         for (const item of likely) {
             result += `${item} ${dicPerson[item]['慣用名']}\n`;
         }

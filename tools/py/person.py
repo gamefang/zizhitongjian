@@ -4,7 +4,7 @@
 from common import *    # 部分通用方法
 
 # 輸入的查詢字符串
-QUERY_STR = '從屬政權：北魏and女性：1'
+QUERY_STR = '*後漢書'
 
 # 人物總表文件路徑
 FP = '1_數據表/1.3_各類通表/人物總表.csv'
@@ -25,7 +25,7 @@ __doc__ = '''
     輸出：符合字段關鍵字的所有索引號
     返回值：(2, 0, 索引號列表, None)
 3. 顯示詳情
-    輸入：[@慣用名]或[@索引號]，示例-@司馬遷 或 @2008
+    輸入：[@慣用名]或[@索引號]，示例-@司馬遷 或 @2008 或 2008@
     輸出：人物總表內記録的該詞條所有內容，必須精確匹配
     返回值：(3, 精確索引號, None, None)
 4. 邏輯篩選
@@ -34,7 +34,7 @@ __doc__ = '''
     說明：支持and和or，可以多個and或多個or，但不支持混用
     返回值：(4, 0, 索引號列表, None)
 5. 模糊匹配
-    輸入：[*XXX]，示例-*敬仲
+    輸入：[*XXX]，示例-*敬仲 或 敬仲*
     輸出：列出所有包含輸入關鍵詞的索引號，模糊匹配
     返回值：(5, 0, 索引號列表, None)
 
@@ -107,9 +107,9 @@ def query(dic_person, input_str):
     relative = set()
     # 確定查詢模式
     input_str = input_str.strip().replace('：', ":")    # 也支持中文冒號
-    if input_str.startswith('*'):   # 模糊匹配
+    if input_str.startswith('*') or input_str.endswith('*'):   # 模糊匹配
         query_mode = 5
-        query_str = input_str[1:]
+        query_str = input_str.replace('*', '')
 
         for key, value in dic_person.items():   # 精確匹配索引號或慣用名
             if _is_exact(query_str, key, value):
@@ -119,9 +119,9 @@ def query(dic_person, input_str):
             for k, v in value.items():
                 if query_str in v:
                     likely.add(key)
-    elif input_str.startswith('@'): # 顯示詳情
+    elif input_str.startswith('@') or input_str.endswith('@'): # 顯示詳情
         query_mode = 3
-        query_str = input_str[1:]
+        query_str = input_str.replace('@', '')
 
         for key, value in dic_person.items():
             if _is_exact(query_str, key, value):
@@ -196,7 +196,7 @@ def _match(input, check, is_exact = True):
     '''
     if isinstance(input, int):  # 數值
         if is_exact:
-            return input == check
+            return str(input) == str(check)
         else:
             return str(input) in str(check)
     elif '|' in check:    # 數組
@@ -252,15 +252,15 @@ def view_query(dic_person, query_str):
         if exact_key != 0:
             result += f'【{query_str}】的索引號：{exact_key} 慣用名：{dic_person[exact_key]["慣用名"]}\n'
         if len(likely) != 0:
-            result += f'【{query_str}】可能是：\n'
+            result += f'【{query_str}】可能是({len(likely)})：\n'
             for item in likely:
                 result += f'{item} {dic_person[item]["慣用名"]}\n'
         if len(relative) != 0:
-            result += f'【{query_str}】相關人物：\n'
+            result += f'【{query_str}】相關人物({len(relative)})：\n'
             for item in relative:
                 result += f'{item} {dic_person[item]["慣用名"]}\n'
     elif query_mode in (2, 4, 5):   # 字段篩選、邏輯篩選、模糊匹配
-        result += f'【{query_str}】的符合的索引：\n'
+        result += f'【{query_str}】的符合的索引({len(likely)})：\n'
         for item in likely:
             result += f'{item} {dic_person[item]["慣用名"]}\n'
     elif query_mode == 3:   # 顯示詳情
