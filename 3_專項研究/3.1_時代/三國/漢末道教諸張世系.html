@@ -1,12 +1,12 @@
 <!DOCTYPE html><html><head>
-      <title>六代之樂</title>
+      <title>漢末道教諸張世系</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
       
       
-      
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"></script>
       
       
       <style>
@@ -24,62 +24,65 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="六代之樂">六代之樂 </h1>
-<table>
-<thead>
-<tr>
-<th>朝代</th>
-<th>樂舞名</th>
-<th>別名</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>黃帝</td>
-<td>雲門</td>
-<td>雲門大卷</td>
-<td>文舞，祭祀天神</td>
-</tr>
-<tr>
-<td>堯</td>
-<td>咸池</td>
-<td>大咸、大章</td>
-<td>文舞，祭祀地神</td>
-</tr>
-<tr>
-<td>舜</td>
-<td>大韶</td>
-<td>韶</td>
-<td>文舞，祭祀四望</td>
-</tr>
-<tr>
-<td>禹</td>
-<td>大夏</td>
-<td></td>
-<td>文舞，祭祀山川</td>
-</tr>
-<tr>
-<td>湯</td>
-<td>大護</td>
-<td>大濩</td>
-<td>武舞，祭祀姜嫄</td>
-</tr>
-<tr>
-<td>周</td>
-<td>大武</td>
-<td></td>
-<td>武舞，祭祀周朝祖先</td>
-</tr>
-</tbody>
-</table>
+<h1 id="漢末道教諸張世系">漢末道教諸張世系 </h1>
+<div class="mermaid">graph TB
 
+南陽張氏---張堪
+張堪--孫--&gt;張衡
+
+正一道教---張道陵
+張道陵--&gt;天師張衡
+天師張衡--&gt;張魯
+
+黃巾之亂---張角
+黃巾之亂---張寶
+黃巾之亂---張梁
+
+巴郡妖巫---張脩
+
+</div>
       </div>
       
       
     
     
-    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
     
     
     
