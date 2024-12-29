@@ -1,0 +1,468 @@
+<!DOCTYPE html><html><head>
+      <title>资治通鉴31</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <blockquote>
+<p>2021/6/14-&gt;2021/6/21</p>
+</blockquote>
+<h1 class="mume-header" id="323-%E5%8D%B7%E4%B8%89%E5%8D%81%E4%B8%80-%E6%B1%89%E7%BA%AA%E4%BA%8C%E5%8D%81%E4%B8%89">323 卷三十一 汉纪二十三</h1>
+
+<blockquote>
+<p>-22-&gt;-14</p>
+</blockquote>
+<h2 class="mume-header" id="32301-%E7%8E%8B%E9%B3%B3%E6%AD%BB%E5%8F%8A%E7%83%8F%E5%AD%AB%E5%B0%8F%E6%98%86%E5%BD%8C%E5%BE%A9%E4%BB%87">32301 王鳳死及烏孫小昆彌復仇</h2>
+
+<blockquote>
+<p>春，三月，壬戌，陨石东郡八-&gt;奉初陵</p>
+</blockquote>
+<h2 class="mume-header" id="32302-%E6%BC%A2%E6%88%90%E5%B8%9D%E5%BE%AE%E8%A1%8C%E5%8F%8A%E9%9B%8A%E9%9B%89%E4%B9%8B%E5%BC%82">32302 漢成帝微行及雊雉之异</h2>
+
+<blockquote>
+<p>上始為微行-&gt;災變尚可銷也</p>
+</blockquote>
+<ul>
+<li>漢武帝微行，喜歡冒充平陽侯曹時；漢成帝微行，喜歡冒充富平侯張放家人</li>
+</ul>
+<h2 class="mume-header" id="32303-%E8%B5%B7%E6%98%8C%E9%99%B5%E5%8F%8A%E4%BA%94%E4%BE%AF%E5%A5%A2%E4%BE%88">32303 起昌陵及五侯奢侈</h2>
+
+<blockquote>
+<p>初，元帝儉約-&gt;孝景庙北阙灾</p>
+</blockquote>
+<h2 class="mume-header" id="32304-%E8%B6%99%E6%B0%8F%E5%A7%90%E5%A6%B9%E9%AC%A5%E8%A8%B1%E5%90%8E%E7%8F%AD%E5%A9%95%E5%A6%A4">32304 趙氏姐妹鬥許后班婕妤</h2>
+
+<blockquote>
+<p>初，许皇后与班婕妤皆有宠于上-&gt;上许焉</p>
+</blockquote>
+<ul>
+<li>許平君世系</li>
+</ul>
+<div class="mermaid">graph TB
+許廣漢父--&gt;許廣漢
+許廣漢父--&gt;許舜
+許廣漢父--&gt;許延壽
+許廣漢--&gt;許平君
+許平君--&gt;漢元帝
+許延壽--&gt;許嘉
+許嘉--&gt;許謁
+許嘉--&gt;孝成許皇后
+
+classDef female fill:#ffcccc
+class 許平君,許謁,孝成許皇后 female
+</div><ul>
+<li>班氏世系</li>
+</ul>
+<div class="mermaid">graph TB
+班況--&gt;班伯
+班況--&gt;班斿
+班況--&gt;班婕妤
+班況--&gt;班稚
+班稚--&gt;班彪
+班彪--&gt;班固
+班彪--&gt;班超
+班彪--&gt;班昭
+
+classDef female fill:#ffcccc
+class 班婕妤,班昭 female
+</div><h2 class="mume-header" id="32305-%E9%84%AD%E8%BA%AC%E8%B5%B7%E7%BE%A9%E5%8F%8A%E6%9D%9C%E9%84%B4%E8%AA%BF%E8%A7%A3%E9%9F%B3%E5%95%86">32305 鄭躬起義及杜鄴調解音商</h2>
+
+<blockquote>
+<p>广汉男子郑躬等六十馀人攻官寺-&gt;戾后园南阙火</p>
+</blockquote>
+<ul>
+<li>夏朝四輔臣：左輔、右弼、前疑、後丞</li>
+</ul>
+<h2 class="mume-header" id="32306-%E8%B6%99%E9%A3%9B%E7%87%95%E7%AB%8B%E5%90%8E">32306 趙飛燕立后</h2>
+
+<blockquote>
+<p>上欲立赵婕妤为皇后-&gt;论为鬼薪</p>
+</blockquote>
+<h2 class="mume-header" id="32307-%E7%8E%8B%E8%8E%BD%E6%88%90%E5%90%8D%E5%8F%8A%E8%B6%99%E6%B0%8F%E7%B5%95%E5%B9%B8">32307 王莽成名及趙氏絕幸</h2>
+
+<blockquote>
+<p>初，太后兄弟八人-&gt;然卒无子</p>
+</blockquote>
+<h2 class="mume-header" id="32308-%E5%8A%89%E5%90%91%E8%91%97%E6%9B%B8%E5%8F%8A%E7%BD%A2%E6%98%8C%E9%99%B5">32308 劉向著書及罢昌陵</h2>
+
+<blockquote>
+<p>光禄大夫刘向以为王教由内及外-&gt;令天下毋有动摇之心</p>
+</blockquote>
+<ul>
+<li>墳形製</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>階級</th>
+<th>墳高</th>
+<th>樹木</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天子</td>
+<td>三仞</td>
+<td>松</td>
+</tr>
+<tr>
+<td>諸侯</td>
+<td>一仞半</td>
+<td>柏</td>
+</tr>
+<tr>
+<td>大夫</td>
+<td>八尺</td>
+<td>藥草</td>
+</tr>
+<tr>
+<td>士</td>
+<td>四尺</td>
+<td>槐</td>
+</tr>
+<tr>
+<td>庶人</td>
+<td>無</td>
+<td>楊柳</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>劉向所言牧豎之焚：牧童找丟失的羊，失火燒了秦始皇棺槨</li>
+<li>初言昌陵三年可成，五年而罷，甩鍋解萬年，漢成帝責任亦不小</li>
+</ul>
+<h2 class="mume-header" id="32309-%E7%BA%8C%E5%B0%81%E8%95%AD%E4%BD%95%E4%B9%8B%E5%BE%8C">32309 續封蕭何之後</h2>
+
+<blockquote>
+<p>初，酂侯萧何之子孙嗣为侯者-&gt;京兆尹翟方进为御史大夫</p>
+</blockquote>
+<h2 class="mume-header" id="32310-%E8%B0%B7%E6%B0%B8%E5%88%87%E8%AB%AB%E8%80%8C%E4%B8%8A%E6%80%92">32310 谷永切諫而上怒</h2>
+
+<blockquote>
+<p>谷永为凉州刺史-&gt;上意亦解，自悔</p>
+</blockquote>
+<ul>
+<li>谷永：王者以民為基，民以財為本，財竭則下畔，下畔則上亡</li>
+</ul>
+<h2 class="mume-header" id="32311-%E9%81%A0%E5%BC%B5%E6%94%BE%E6%93%A2%E6%96%B9%E9%80%B2%E5%BE%99%E9%99%B3%E6%B9%AF">32311 遠張放擢方進徙陳湯</h2>
+
+<blockquote>
+<p>上尝与张放及赵、李诸侍中共宴饮禁中-&gt;皆免官</p>
+</blockquote>
+<h2 class="mume-header" id="32312-%E6%BC%A2%E6%88%90%E5%B8%9D%E5%A5%BD%E9%AC%BC%E7%A5%9E">32312 漢成帝好鬼神</h2>
+
+<blockquote>
+<p>是岁，琅邪太守朱博为左冯翊-&gt;上善其言</p>
+</blockquote>
+<h2 class="mume-header" id="32313-%E8%B5%B7%E7%BE%A9%E5%9B%9B%E8%B5%B7%E5%8F%8A%E6%A2%85%E7%A6%8F%E8%AB%AB%E9%87%8D%E8%B3%A2%E7%B4%8D%E8%A8%80">32313 起義四起及梅福諫重賢納言</h2>
+
+<blockquote>
+<p>十一月，尉氏男子樊并等十三人谋反-&gt;上不纳</p>
+</blockquote>
+<ul>
+<li>民有三年之儲曰升平</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>

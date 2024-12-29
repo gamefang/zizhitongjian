@@ -1,0 +1,577 @@
+<!DOCTYPE html><html><head>
+      <title>资治通鉴2</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <blockquote>
+<p>2020/7/30-&gt;2020/8/28</p>
+</blockquote>
+<h1 class="mume-header" id="102-%E5%8D%B7%E4%BA%8C-%E5%91%A8%E7%BA%AA%E4%BA%8C">102 卷二 周纪二</h1>
+
+<blockquote>
+<p>-368-&gt;-321</p>
+</blockquote>
+<h2 class="mume-header" id="10201-%E8%87%B3%E9%A1%AF%E7%8E%8B%E4%B8%83%E5%B9%B4">10201 至顯王七年</h2>
+
+<blockquote>
+<p>齐伐魏-&gt;子文公立</p>
+</blockquote>
+<ul>
+<li>石門之戰，吳起已死，商鞅未來，秦斬首魏六萬人，秦軍國主義模式開啟，魏吃光最後的老本。</li>
+</ul>
+<h2 class="mume-header" id="10202-%E7%A7%A6%E5%AD%9D%E5%85%AC%E5%8F%8A%E5%95%86%E9%9E%85%E5%8F%98%E6%B3%95">10202 秦孝公及商鞅变法</h2>
+
+<blockquote>
+<p>秦献公薨-&gt;赵、齐、宋会于平陆</p>
+</blockquote>
+<ul>
+<li>商鞅变法，将国家打造为1984，恐惧高压只能营造表面的和谐。司马光所说的信，是法家的严酷和愚民的不知变通。</li>
+<li>商鞅喷甘龙是革新派制胜守旧派的标杆。</li>
+<li>韓懿侯与韓昭侯更迭时间不符，舍通鉴</li>
+<li>商鞅二十等爵</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>等級</th>
+<th>名稱</th>
+<th>類別</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>公士</td>
+<td>士</td>
+<td>步卒之有爵者</td>
+</tr>
+<tr>
+<td>2</td>
+<td>上造</td>
+<td>士</td>
+<td>步卒</td>
+</tr>
+<tr>
+<td>3</td>
+<td>簪褭</td>
+<td>士</td>
+<td>御駟馬者</td>
+</tr>
+<tr>
+<td>4</td>
+<td>不更</td>
+<td>士</td>
+<td>車右，不復與凡更卒同</td>
+</tr>
+<tr>
+<td>5</td>
+<td>大夫</td>
+<td>大夫/軍吏</td>
+<td>大夫在車左</td>
+</tr>
+<tr>
+<td>6</td>
+<td>官大夫</td>
+<td>大夫/軍吏</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>公大夫</td>
+<td>大夫/軍吏</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>公乘</td>
+<td>大夫/軍吏</td>
+<td>雖非臨戰，得公乘車。吏民爵不得過公乘。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>五大夫</td>
+<td>大夫/軍吏</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>左庶長</td>
+<td>九卿/軍將</td>
+<td>左將軍</td>
+</tr>
+<tr>
+<td>11</td>
+<td>右庶長</td>
+<td>九卿/軍將</td>
+<td>右將軍</td>
+</tr>
+<tr>
+<td>12</td>
+<td>左更</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>中更</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>右更</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>少上造</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>大上造</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>駟車庶長</td>
+<td>九卿/軍將</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>大庶長</td>
+<td>九卿/軍將</td>
+<td>大將軍</td>
+</tr>
+<tr>
+<td>19</td>
+<td>關內侯</td>
+<td>諸侯</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>徹侯</td>
+<td>諸侯</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>魯國論戰的曹劌之後屢戰屢敗，最後成為刺客曹沫，劫持齊桓公強搶土地。</li>
+</ul>
+<h2 class="mume-header" id="10203-%E9%BD%8A%E5%A8%81%E9%AD%8F%E6%83%A0%E8%AB%96%E5%AF%B6">10203 齊威魏惠論寶</h2>
+
+<blockquote>
+<p>齐威王、魏惠王会田于郊-&gt;楚王使景舍救赵</p>
+</blockquote>
+<ul>
+<li>鲁共公与鲁康公司更迭时间不符，舍通鉴</li>
+<li>楚国强族三闾：昭、屈、景</li>
+</ul>
+<h2 class="mume-header" id="10204-%E6%A1%82%E9%99%B5%E4%B9%8B%E6%88%98">10204 桂陵之战</h2>
+
+<blockquote>
+<p>齐威王使田忌救赵-&gt;魏师大败</p>
+</blockquote>
+<ul>
+<li>孙膑围魏最终并未救赵，主要是为了干死庞涓。</li>
+<li>军师卧辎车渐成惯例，演化为诸葛亮的轮椅。</li>
+</ul>
+<h2 class="mume-header" id="10205-%E8%87%B3%E6%98%BE%E7%8E%8B%E5%8D%81%E5%85%AB%E5%B9%B4">10205 至显王十八年</h2>
+
+<blockquote>
+<p>韩伐东周-&gt;与赵盟漳水上</p>
+</blockquote>
+<h2 class="mume-header" id="10206-%E9%9F%93%E6%98%AD%E4%BE%AF%E5%8F%8A%E7%94%B3%E4%B8%8D%E5%AE%B3%E8%AE%8A%E6%B3%95">10206 韓昭侯及申不害變法</h2>
+
+<blockquote>
+<p>韩昭侯以申不害为相-&gt;吾必待有功者</p>
+</blockquote>
+<ul>
+<li>申不害变法以后给自己的亲戚走后门，韩昭侯拿自己的破裤头当宝贝。自古韩国多奇葩。</li>
+</ul>
+<h2 class="mume-header" id="10207-%E8%87%B3%E6%98%BE%E7%8E%8B%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B9%B4">10207 至显王二十六年</h2>
+
+<blockquote>
+<p>秦商鞅筑冀阙宫庭于咸阳-&gt;秦孝公使公子少官帅师会诸侯于逢泽以朝王</p>
+</blockquote>
+<ul>
+<li>鲁康公与鲁景公更迭时间不符，舍通鉴</li>
+</ul>
+<h2 class="mume-header" id="10208-%E9%A6%AC%E9%99%B5%E4%B9%8B%E6%88%B0">10208 馬陵之戰</h2>
+
+<blockquote>
+<p>魏庞涓伐韩-&gt;出奔楚</p>
+</blockquote>
+<ul>
+<li>齊威王時期諸田譜系</li>
+</ul>
+<div class="mermaid">graph TB
+田齊桓公--&gt;齊威王
+齊威王--&gt;齊宣王
+齊威王--&gt;田嬰
+田嬰--&gt;孟嘗君
+</div><h2 class="mume-header" id="10209-%E9%AD%8F%E7%8D%BB%E6%B2%B3%E8%A5%BF%E5%8F%8A%E5%95%86%E9%9E%85%E8%BB%8A%E8%A3%82">10209 魏獻河西及商鞅車裂</h2>
+
+<blockquote>
+<p>卫鞅言于秦孝公曰-&gt;宋太丘社亡</p>
+</blockquote>
+<ul>
+<li>商鞅立威得罪太子，執法得罪國民，欺騙得罪敵國，出入全靠保鏢，還繼續貪圖賞賜，不聽人言而不自知，不死纔怪。</li>
+</ul>
+<h2 class="mume-header" id="10210-%E5%AD%9F%E5%AD%90%E8%A6%8B%E6%A2%81%E6%83%A0%E7%8E%8B">10210 孟子見梁惠王</h2>
+
+<blockquote>
+<p>邹人孟轲见魏惠王-&gt;所与言之人异故也</p>
+</blockquote>
+<h2 class="mume-header" id="10211-%E8%87%B3%E9%A1%AF%E7%8E%8B%E4%B8%89%E5%8D%81%E5%85%AD%E5%B9%B4">10211 至顯王三十六年</h2>
+
+<blockquote>
+<p>秦伐韩-&gt;子宣惠王立</p>
+</blockquote>
+<ul>
+<li>死前珍惜一顰一笑破褲頭，死後開始腐敗造大門，如此的韓昭侯，是韓國最拿的出手的領導。</li>
+</ul>
+<h2 class="mume-header" id="10212-%E8%98%87%E7%A7%A6%E7%9B%B8%E5%85%AD%E5%9C%8B">10212 蘇秦相六國</h2>
+
+<blockquote>
+<p>初，洛阳人苏秦说秦王以兼天下之术-&gt;车骑辎重拟于王者</p>
+</blockquote>
+<ul>
+<li>雕阴之战</li>
+</ul>
+<h2 class="mume-header" id="10213-%E8%87%B3%E6%98%BE%E7%8E%8B%E5%9B%9B%E5%8D%81%E5%85%AB%E5%B9%B4">10213 至显王四十八年</h2>
+
+<blockquote>
+<p>齐威王薨-&gt;子哙立</p>
+</blockquote>
+<ul>
+<li>河西之战
+<ul>
+<li>第一次：魏文侯时期，魏国初兴，吴起夺秦河西</li>
+<li>第二次：魏武侯时期，阴晋之战，吴起守河西以少胜多</li>
+<li>第三次：秦献公时期，秦伐魏，石门之战斩首6万，少梁之战俘主将公叔痤</li>
+<li>第四次：秦孝公时期，商鞅变法，趁桂陵之战齐败魏之际偷袭，魏死而不僵，秦无功</li>
+<li>第五次：魏惠王称王，马陵之战齐败魏，魏死透，秦趁机攻夺河西。秦惠文王时期，雕阴之战全歼魏军，俘主将龙贾，收复全部河西</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="10214-%E5%AD%9F%E5%98%97%E5%90%9B">10214 孟嘗君</h2>
+
+<blockquote>
+<p>齐王封田婴于薛-&gt;君之国危矣</p>
+</blockquote>
+<ul>
+<li>溫公說孟嘗君是挪用公款装大头蒜的富二代，找一批雞鳴狗盜之徒給自己撐排場，確實如此</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>

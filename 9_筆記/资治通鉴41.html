@@ -1,0 +1,455 @@
+<!DOCTYPE html><html><head>
+      <title>资治通鉴41</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <blockquote>
+<p>2021/8/9-&gt;2021/8/16</p>
+</blockquote>
+<h1 class="mume-header" id="502-%E5%8D%B7%E5%9B%9B%E5%8D%81%E4%B8%80-%E6%B1%89%E7%BA%AA%E4%B8%89%E5%8D%81%E4%B8%89">502 卷四十一 汉纪三十三</h1>
+
+<blockquote>
+<p>27-&gt;29</p>
+</blockquote>
+<h2 class="mume-header" id="50201-%E5%B9%B3%E8%B5%A4%E7%9C%89">50201 平赤眉</h2>
+
+<blockquote>
+<p>春，正月，甲子，冯异为征西大将军-&gt;帝赦不诛</p>
+</blockquote>
+<ul>
+<li>湖縣之戰：赤眉佯敗棄假糧草，漢軍中計，鄧禹馮異大敗，吊兒郎當赤眉軍的迴光返照</li>
+<li>崤底之戰：馮異遣人偽裝赤眉大敗之，降八萬</li>
+<li>赤眉降光武，光武說不服可以打一架決勝負，徐宣說這是找到組織了特別高興，光武說你真是鐵中錚錚庸中佼佼者</li>
+</ul>
+<h2 class="mume-header" id="50202-%E5%BC%B5%E6%AD%A5%E5%BD%AD%E5%AF%B5%E5%89%B2%E6%93%9A%E5%8F%8A%E8%AA%85%E9%84%A7%E5%A5%89">50202 張步彭寵割據及誅鄧奉</h2>
+
+<blockquote>
+<p>二月，刘永立董宪为海西王-&gt;复朱祜位</p>
+</blockquote>
+<h2 class="mume-header" id="50203-%E5%B9%B3%E9%97%9C%E4%B8%AD%E5%AF%87%E5%8F%8A%E5%BB%A3%E6%A8%82%E4%B9%8B%E6%88%B0">50203 平關中寇及廣樂之戰</h2>
+
+<blockquote>
+<p>延岑既破赤眉-&gt;自将兵助延围睢阳</p>
+</blockquote>
+<h2 class="mume-header" id="50204-%E5%BB%B6%E5%B2%91%E5%A5%94%E7%A7%A6%E8%B1%90%E5%8F%8A%E6%96%AC%E5%8A%89%E6%B0%B8">50204 延岑奔秦豐及斬劉永</h2>
+
+<blockquote>
+<p>车驾自小长安引还-&gt;众十馀万</p>
+</blockquote>
+<h2 class="mume-header" id="50205-%E9%9A%97%E5%9B%82%E8%87%A3%E7%94%B0%E6%88%8E%E7%A0%B4%E5%BC%B5%E8%B1%90%E8%AA%85">50205 隗囂臣田戎破張豐誅</h2>
+
+<blockquote>
+<p>帝谓太中大夫来歙曰-&gt;當死無恨</p>
+</blockquote>
+<ul>
+<li>逗逼張豐死前椎破假玉璽，終於知道被騙，可謂朝聞道夕死可矣</li>
+</ul>
+<h2 class="mume-header" id="50206-%E8%98%AD%E9%99%B5%E4%B9%8B%E6%88%B0%E5%8F%8A%E5%9C%8D%E6%9D%8E%E6%86%B2">50206 蘭陵之戰及圍李憲</h2>
+
+<blockquote>
+<p>上詔耿弇進擊彭寵-&gt;冬，十月，甲寅，车驾还宫</p>
+</blockquote>
+<ul>
+<li>不聽光武言，敗仗在眼前，故雲台二十八將存在感低。蘭陵之戰是將領拖皇帝後腿的典型</li>
+<li>耿氏世系</li>
+</ul>
+<div class="mermaid">graph TB
+耿況--&gt;耿弇
+耿況--&gt;耿舒
+耿況--&gt;耿國
+耿況--&gt;耿廣
+耿況--&gt;耿舉
+耿況--&gt;耿霸
+
+耿弇--&gt;耿忠
+耿忠--&gt;耿馮
+耿馮--&gt;耿良
+
+耿舒--&gt;耿襲
+耿襲--&gt;耿寶
+耿襲--&gt;耿姬
+隆慮公主--&gt;耿姬
+
+耿國--&gt;耿秉
+耿國--&gt;耿夔
+
+耿廣--&gt;耿恭
+耿恭--&gt;耿溥
+耿溥--&gt;耿曄
+
+耿霸--&gt;耿文金
+耿文金--&gt;耿喜
+耿喜--&gt;耿顯
+耿顯--&gt;耿援
+
+classDef female fill:#ffcccc
+class 隆慮公主,耿姬 female
+</div><h2 class="mume-header" id="50207-%E9%A6%AC%E6%8F%B4%E6%AF%94%E4%BA%8C%E5%B8%9D%E5%8F%8A%E5%88%B6%E8%A1%A1%E5%85%AC%E5%AD%AB%E8%BF%B0">50207 馬援比二帝及制衡公孫述</h2>
+
+<blockquote>
+<p>隗嚣使马援往观公孙述-&gt;反復勝邪</p>
+</blockquote>
+<h2 class="mume-header" id="50208-%E5%9E%82%E6%83%A0%E4%B9%8B%E6%88%B0%E5%8F%8A%E5%BD%AD%E5%AF%B5%E6%AD%BB">50208 垂惠之戰及彭寵死</h2>
+
+<blockquote>
+<p>二月，丙午，大赦-&gt;無乃異於是乎</p>
+</blockquote>
+<ul>
+<li>垂惠之戰，王霸賣隊友獲得士氣，大敗敵軍</li>
+<li>完美綁票撕票計劃：彭寵寫通關文書，妻縫縑囊，事成，子密斬二人首置囊中，持通關文書遠走，奔漢封侯</li>
+</ul>
+<h2 class="mume-header" id="50209-%E9%BE%90%E8%90%8C%E5%8F%8D%E6%BC%A2%E5%8F%8A%E7%94%B0%E6%88%8E%E4%BA%A1%E8%9C%80">50209 龐萌反漢及田戎亡蜀</h2>
+
+<blockquote>
+<p>帝以扶風郭伋為漁陽太守-&gt;夏，四月，旱，蝗</p>
+</blockquote>
+<ul>
+<li>劉平身被七創護衛楚郡太守孫萌，以創血解其渴</li>
+</ul>
+<h2 class="mume-header" id="50210-%E7%8F%AD%E5%BD%AA%E6%8A%95%E7%AB%87%E8%9E%8D%E5%8F%8A%E7%AB%87%E8%9E%8D%E5%90%91%E6%BC%A2">50210 班彪投竇融及竇融向漢</h2>
+
+<blockquote>
+<p>隗嚣问于班彪曰-&gt;以为天子明见万里之外</p>
+</blockquote>
+<h2 class="mume-header" id="50211-%E8%AA%85%E7%A7%A6%E8%B1%90%E5%8F%8A%E5%8A%89%E7%A7%80%E7%A0%B4%E8%91%A3%E6%86%B2%E4%B9%8B%E6%88%B0">50211 誅秦豐及劉秀破董憲之戰</h2>
+
+<blockquote>
+<p>朱祜急攻黎丘-&gt;帝幸鲁</p>
+</blockquote>
+<h2 class="mume-header" id="50212-%E7%A5%9D%E9%98%BF%E8%87%A8%E6%B7%84%E4%B9%8B%E6%88%B0">50212 祝阿臨淄之戰</h2>
+
+<blockquote>
+<p>张步闻耿弇将至-&gt;未尝挫折焉</p>
+</blockquote>
+<h2 class="mume-header" id="50213-%E7%9B%A7%E8%8A%B3%E6%93%9A%E4%B9%9D%E5%8E%9F%E5%8F%8A%E9%A6%AE%E7%95%B0%E6%B2%BB%E9%97%9C%E4%B8%AD">50213 盧芳據九原及馮異治關中</h2>
+
+<blockquote>
+<p>初起太学-&gt;而有惧意</p>
+</blockquote>
+<h2 class="mume-header" id="50214-%E9%9A%97%E5%9B%82%E5%85%A9%E7%AB%AF%E7%8C%B6%E8%B1%AB">50214 隗囂兩端猶豫</h2>
+
+<blockquote>
+<p>隗嚣矜己饰智-&gt;于是游士长者稍稍去之</p>
+</blockquote>
+<h2 class="mume-header" id="50215-%E6%B1%9F%E5%8D%97%E8%87%A3%E6%BC%A2%E5%8F%8A%E8%99%95%E5%A3%AB%E4%B8%8D%E8%87%A3">50215 江南臣漢及處士不臣</h2>
+
+<blockquote>
+<p>王莽末-&gt;五十五国皆属焉</p>
+</blockquote>
+<ul>
+<li>莎車王世系</li>
+</ul>
+<div class="mermaid">graph TB
+老莎車王--禪讓--&gt;萬年
+萬年--被弒--&gt;呼屠徵
+呼屠徵--馮奉世立--&gt;呼屠徵侄
+呼屠徵侄--&gt;延
+延--傳子--&gt;康
+康--傳弟--&gt;賢
+賢--傳子--&gt;不居徵
+不居徵--傳弟--&gt;齊黎
+</div>
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>
