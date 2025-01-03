@@ -34,16 +34,11 @@ csvtotable 2_世系圖表/2.2_并立政權/漢/東漢末年勢力列表.csv 2_�
 # 3 -------------------
 csvtotable 3_專項研究/3.1_時代/西漢/西漢開國功臣列表.csv 3_專項研究/3.1_時代/西漢/西漢開國功臣列表.html -o -c 西漢開國功臣列表 -e
 csvtotable 3_專項研究/3.1_時代/西漢/張騫通西域諸國概況.csv 3_專項研究/3.1_時代/西漢/張騫通西域諸國概況.html -o -c 張騫通西域諸國概況 -e
-csvtotable 3_專項研究/3.1_時代/新/王莽寶貨制.csv 3_專項研究/3.1_時代/新/王莽寶貨制.html -o -c 王莽寶貨制 -e
 csvtotable 3_專項研究/3.1_時代/東漢/雲臺二十八將表.csv 3_專項研究/3.1_時代/東漢/雲臺二十八將表.html -o -c 雲臺二十八將表 -e
 csvtotable 3_專項研究/3.1_時代/東晉/五胡十六國列表.csv 3_專項研究/3.1_時代/東晉/五胡十六國列表.html -o -c 五胡十六國列表 -e
 
 cd 3_專項研究/3.2_通用
-	csvtotable 粗線條歷史朝代表.csv 粗線條歷史朝代表.html -o -c 粗線條歷史朝代表 -e
-	csvtotable 和親列表.csv 和親列表.html -o -c 和親列表 -e
-	csvtotable 被詛咒的趙王.csv 被詛咒的趙王.html -o -c 被詛咒的趙王 -e
 	csvtotable 百越各國.csv 百越各國.html -o -c 百越各國 -e
-	csvtotable 匈奴語對照表.csv 匈奴語對照表.html -o -c 匈奴語對照表 -e
 cd ..
 cd ..
 
