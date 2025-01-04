@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # 年號總表相關的分析工具
 
-from common import *    # 部分通用方法
-
 # 輸入的查詢字符串
 QUERY_STR = '250'
 
@@ -11,9 +9,6 @@ FP = '1_數據表/1.3_各類通表/年號總表.csv'
 # 數字對應漢字
 NUM_IN_HAN = '十一二三四五六七八九'
 NUM_UNIQUE = {1:'元',10:'十',11:'十一',12:'十二',13:'十三',14:'十四',15:'十五',16:'十六',17:'十七',18:'十八',19:'十九'}
-
-# 路徑修正
-FP = this_to_main_page(FP)
 
 def load_data_as_dict(csv_data):
     '''
@@ -68,9 +63,23 @@ def year_delta(input_year, comp_year):
     else:
         return comp_year - input_year - 1
     
+def mainjs(str_csv, input_str):
+    '''
+    供js調用的函數
+    '''
+    dic_era = load_data_as_dict(str_csv)
+    result = query(dic_era, input_str)
+    return result.replace('\n', '<br>')
+    
 if __name__ == '__main__':
-    # 加載數據
-    result_str = csv_loader(FP)
-    dic_era = load_data_as_dict(result_str)
-    # 年號查詢
-    print(query(dic_era, QUERY_STR))
+    try:    # js環境
+        import js   # type: ignore  # 忽略 Pylance 的报错
+    except: # py本地環境
+        from common import *    # 部分通用方法
+        # 路徑修正
+        FP = this_to_main_page(FP)
+        # 加載數據
+        result_str = csv_loader(FP)
+        dic_era = load_data_as_dict(result_str)
+        # 年號查詢
+        print(query(dic_era, QUERY_STR))
