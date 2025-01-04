@@ -6,7 +6,7 @@ export_on_save:
 # 資治通鑑學習筆記
 
 > 基於數據製作的一些速查工具
-> [年號查詢](./tools/era_name/era_name.html) | [人物總表查詢](./tools/person.html)
+> [年號查詢](./tools/era_name/era_name.html) | [人物總表查詢](./tools/person/person.html)
 
 ## 1 數據表
 
@@ -227,3 +227,4 @@ export_on_save:
     - [markdown preview enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/)：markdown插件，即時預覽及轉html
     - [csvtotable](https://pypi.org/project/csvtotable/)：Python擴展包，csv轉html，支持分頁、搜索、排序等功能
     - [codeconvert.ai](https://www.codeconvert.ai/python-to-javascript-converter)：可以將python腳本完美轉化為javascript
+    - [Pyodide](https://pyodide.org/en/stable/)：可以在網頁中使用python

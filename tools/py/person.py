@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # 人物總表相關的分析工具
 
-from common import *    # 部分通用方法
-
 # 輸入的查詢字符串
 QUERY_STR = '*後漢書'
 
@@ -10,9 +8,6 @@ QUERY_STR = '*後漢書'
 FP = '1_數據表/1.3_各類通表/人物總表.csv'
 # 必定模糊匹配的字段
 ONLY_NOT_EXACT_PARAMS = ['簡述', '記載年備註', '備註']
-
-# 路徑修正
-FP = this_to_main_page(FP)
 
 __doc__ = '''
 人物總表相關的分析工具
@@ -271,12 +266,26 @@ def view_query(dic_person, query_str):
                 if value != '':
                     result += f'{key}：{value}\n'
     return result[:-1] or '未找到數據！'
-            
+
+def mainjs(str_csv, input_str):
+    '''
+    供js調用的函數
+    '''
+    dic_person = load_data_as_dict(str_csv)
+    result = view_query(dic_person, input_str)
+    return result.replace('\n', '<br>')
+
 if __name__ == '__main__':
-    # 加載數據
-    result_str = csv_loader(FP)
-    dic_person = load_data_as_dict(result_str)
-    # 檢查慣用名是否有重複
-    print(view_check_name(dic_person))
-    # 人物查找
-    print(view_query(dic_person, QUERY_STR))
+    try:    # js環境
+        import js   # type: ignore  # 忽略 Pylance 的报错
+    except: # py本地環境
+        from common import *    # 部分通用方法
+        # 路徑修正
+        FP = this_to_main_page(FP)
+        # 加載數據
+        result_str = csv_loader(FP)
+        dic_person = load_data_as_dict(result_str)
+        # 檢查慣用名是否有重複
+        print(view_check_name(dic_person))
+        # 人物查找
+        print(view_query(dic_person, QUERY_STR))

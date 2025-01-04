@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物總表查詢工具</title>
+    <link rel="stylesheet" href="person.css">
+</head>
+<body>
+    
+    <p><a href="../../index.html">返回首頁</a></p>
+
+    <h2>人物總表查詢工具</h2>
+
+    <p>實現<a href="../../1_數據表/1.3_各類通表/人物總表.html">人物總表</a>內的查詢功能。<br/>
+    <details>
+    <summary>查詢指令示例</summary>
+    查詢張讓的信息：張讓<br/>
+    司馬遷的詳細信息：@司馬遷<br/>
+    只知道人物和後漢書有關，不知道哪方面有關：*後漢書<br/>
+    蜀漢的統治者：統治政權：蜀漢<br/>
+    表字為仲達或子上的：字：仲達or字：子上<br/>
+    和仇池政權有關的：統治政權：仇池or從屬政權：仇池<br/>
+    北魏的女性：從屬政權：北魏and女性：1<br/>
+    </details></p>
+    
+    <input type="text" id="txt_input" placeholder="輸入查詢指令">
+    <button id="btn_run">查詢</button><br><br>
+
+    <h3>結果：</h3>
+    <pre id="txt_result"></pre>
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="person.js"></script>
+</body>
+</html>
