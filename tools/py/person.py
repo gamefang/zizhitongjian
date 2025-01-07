@@ -10,7 +10,15 @@ FP = '1_數據表/1.3_各類通表/人物總表.csv'
 ONLY_NOT_EXACT_PARAMS = ['簡述', '記載年備註', '備註']
 
 __doc__ = '''
-人物總表相關的分析工具
+查詢指令示例：
+查詢張讓的信息：張讓
+司馬遷的詳細信息：@司馬遷
+只知道人物和後漢書有關，不知道哪方面有關：*後漢書
+蜀漢的統治者：統治政權：蜀漢
+表字為仲達或子上的：字：仲達or字：子上
+和仇池政權有關的：統治政權：仇池or從屬政權：仇池
+北魏的女性：從屬政權：北魏and女性：1
+
 1. 人物定位
     輸入：[慣用名]或[索引號]，示例-司馬遷 或 2008
     輸出：精確匹配的索引號、可能的索引號列表、與輸入相關聯的索引號列表
@@ -32,15 +40,6 @@ __doc__ = '''
     輸入：[*XXX]，示例-*敬仲 或 敬仲*
     輸出：列出所有包含輸入關鍵詞的索引號，模糊匹配
     返回值：(5, 0, 索引號列表, None)
-
-示例：
-查詢張讓的信息：張讓
-司馬遷的詳細信息：@司馬遷
-只知道人物和後漢書有關，不知道哪方面有關：*後漢書
-蜀漢的統治者：統治政權：蜀漢
-表字為仲達或子上的：字：仲達or字：子上
-和仇池正確有關的：統治政權：仇池or從屬政權：仇池
-北魏的女性：從屬政權：北魏and女性：1
 '''
 
 def load_data_as_dict(csv_data):
@@ -161,6 +160,7 @@ def query(dic_person, input_str):
             # 找精確索引號
             if _is_exact(query_str, key, value):
                 exact_key = key
+                query_mode = 3  # 精確索引號不需要@
                 continue
             # 找可能索引號
             if _match(query_str, value['慣用名'], False): # 模糊匹配慣用名
@@ -241,6 +241,9 @@ def view_query(dic_person, query_str):
     '''
     query方法的輸出
     '''
+    query_str = query_str.strip()
+    if (query_str == ""):   # 無查詢內容則輸出文檔
+        return __doc__
     result = ''
     query_mode, exact_key, likely, relative = query(dic_person, query_str)
     if query_mode == 1: # 人物定位
@@ -265,7 +268,7 @@ def view_query(dic_person, query_str):
             for key, value in data.items():
                 if value != '':
                     result += f'{key}：{value}\n'
-    return result[:-1] or '未找到數據！'
+    return result[:-1] or f'【{query_str}】未找到數據！'
 
 def mainjs(str_csv, input_str):
     '''
@@ -273,7 +276,7 @@ def mainjs(str_csv, input_str):
     '''
     dic_person = load_data_as_dict(str_csv)
     result = view_query(dic_person, input_str)
-    return result.replace('\n', '<br>')
+    return result.replace('\n', '<br/>')
 
 if __name__ == '__main__':
     try:    # js環境
