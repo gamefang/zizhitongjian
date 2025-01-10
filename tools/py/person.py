@@ -42,6 +42,38 @@ __doc__ = '''
     返回值：(5, 0, 索引號列表, None)
 '''
 
+# ---------- 重名檢查 ----------
+def check_name(dic_person):
+    '''
+    檢查慣用名是否有重複，返回可能有問題的所有相關索引編號
+    '''
+    list_names = []
+    wrong_keys = []
+    dic_person_keys = list(dic_person.keys())
+    for key, value in dic_person.items():
+        name = value["慣用名"]
+        if name and name in list_names:  # 非空且重複出現
+            used_index = list_names.index(name)
+            used_key = dic_person_keys[used_index]
+            if used_key not in wrong_keys:
+                wrong_keys.append(used_key)
+            wrong_keys.append(key)
+        list_names.append(name) # 添加所有，確保下標對齊
+    return wrong_keys
+
+def view_check_name(dic_person):
+    '''
+    check_name方法的輸出
+    '''
+    result = ''
+    wrong_name_keys = check_name(dic_person)
+    if len(wrong_name_keys) != 0:
+        result += '檢查到可能重複的慣用名：\n'
+        for item in wrong_name_keys:
+            result += f'{item} {dic_person[item]["慣用名"]}\n'
+    return result[:-1]
+
+# ---------- 數據檢索 ----------
 def load_data_as_dict(csv_data):
     '''
     加載csv多行文本數據為嵌套字典，格式：
@@ -72,24 +104,6 @@ def load_data_as_dict(csv_data):
                 for n in range(1, len(list_params))
             }
     return dic_person
-
-def check_name(dic_person):
-    '''
-    檢查慣用名是否有重複，返回可能有問題的所有相關索引編號
-    '''
-    list_names = []
-    wrong_keys = []
-    dic_person_keys = list(dic_person.keys())
-    for key, value in dic_person.items():
-        name = value["慣用名"]
-        if name in list_names:  # 重複出現
-            used_index = list_names.index(name)
-            used_key = dic_person_keys[used_index]
-            if used_key not in wrong_keys:
-                wrong_keys.append(used_key)
-            wrong_keys.append(key)
-        list_names.append(name) # 添加所有，確保下標對齊
-    return wrong_keys
 
 def query(dic_person, input_str):
     '''
@@ -223,19 +237,6 @@ def _is_exact(query_str, key, value):
     if not is_num and _match(query_str, value['慣用名'], True): # 精確匹配慣用名
         return True
     return False
-    
-# 輸出方法
-def view_check_name(dic_person):
-    '''
-    check_name方法的輸出
-    '''
-    result = ''
-    wrong_name_keys = check_name(dic_person)
-    if len(wrong_name_keys) != 0:
-        result += '檢查到可能重複的慣用名：\n'
-        for item in wrong_name_keys:
-            result += f'{item} {dic_person[item]["慣用名"]}\n'
-    return result[:-1]
 
 def view_query(dic_person, query_str):
     '''

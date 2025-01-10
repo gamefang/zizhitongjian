@@ -4,8 +4,6 @@
 cd utils
 # 验证模板
 	python update_template.py
-# 同步js需要使用的data
-	python sync_js_data.py
 cd ..
 
 # 1 -------------------
