@@ -1,0 +1,269 @@
+<!DOCTYPE html><html><head>
+      <title>律學</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="律學">律學 </h1>
+<h2 id="律學實際算法">律學實際算法 </h2>
+<h3 id="古代中國">古代中國 </h3>
+<ul>
+<li>三分損益法：三分損一<code>2/3</code>和三分益一<code>4/3</code>交替計算
+<ul>
+<li>核心算法</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code>    <span class="token comment"># sanfensunyi</span>
+    first_value <span class="token operator">=</span> <span class="token number">900</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> first_value
+        <span class="token keyword keyword-elif">elif</span> i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> last_value <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">/</span><span class="token number">3</span>   <span class="token comment"># 三分損一</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> last_value <span class="token operator">*</span> <span class="token number">4</span><span class="token operator">/</span><span class="token number">3</span>   <span class="token comment"># 三分益一</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+        last_value <span class="token operator">=</span> this_value
+</code></pre><ul>
+<li>京房六十律：三分損益法計算60次</li>
+</ul>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code>sanfensunyi<span class="token punctuation">(</span>FIRST_VALUE<span class="token punctuation">,</span> <span class="token number">61</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>錢樂之三百六十律：三分損益法計算360次</li>
+</ul>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code>sanfensunyi<span class="token punctuation">(</span>FIRST_VALUE<span class="token punctuation">,</span> <span class="token number">361</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>何承天新律：將三分損益法的黃鐘差值均分回十二音中，實質是基於三分損益法比較巧妙的湊數補救
+<ul>
+<li>核心算法</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code>    <span class="token comment"># hechengtian_xinlv</span>
+    sanfensunyi_result <span class="token operator">=</span> sanfensunyi<span class="token punctuation">(</span>first_value<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    delta <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>sanfensunyi_result<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span> <span class="token operator">-</span> sanfensunyi_result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 三分損益法差值</span>
+    add_value <span class="token operator">=</span> delta <span class="token operator">/</span> <span class="token number">12</span>  <span class="token comment"># 均分差值</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ori_value <span class="token operator">=</span> sanfensunyi_result<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token number">12</span><span class="token punctuation">]</span>
+        this_value <span class="token operator">=</span> ori_value <span class="token operator">+</span> add_value <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">12</span><span class="token punctuation">)</span>   <span class="token comment"># 差值補回十二律中</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+</code></pre><ul>
+<li>朱載堉十二平均律：新法密律<code>2**(1/12)</code>，現行通用
+<ul>
+<li>核心算法</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code>    <span class="token comment"># equal_temperament</span>
+    MILV <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">12</span><span class="token punctuation">)</span>  <span class="token comment"># 朱載堉新法密律</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        this_value <span class="token operator">=</span> first_value <span class="token operator">*</span> <span class="token punctuation">(</span>MILV <span class="token operator">**</span> i<span class="token punctuation">)</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+</code></pre><h3 id="其他">其他 </h3>
+<ul>
+<li>畢達哥拉斯率：與三分損益法基本一致，但跳過了半音，最後得到的是七聲音階</li>
+<li>伽利略他爸：<code>18/17</code>，差值較大</li>
+<li>1605年荷蘭數學家西蒙·斯特芬：<code>(1/2)**(1/12)</code>，看起來和新法密律較像，但只能湊對黃鐘音，其餘都不對</li>
+</ul>
+<h2 id="文獻記載及驗證">文獻記載及驗證 </h2>
+<ul>
+<li>管子地員篇</li>
+<li>呂氏春秋</li>
+<li>禮記禮運篇</li>
+<li>淮南子</li>
+<li>史記律書</li>
+<li>宋書律曆志</li>
+<li>隋書律曆志</li>
+<li>資治通鑑
+<ul>
+<li>記載何承天批判三分損益、京房、錢樂之的推導方法而自創新律</li>
+<li>驗證：詳見<code>何承天新律</code>算法<code>hechengtian_xinlv</code>，使<code>HUANGZHONG=900</code>，則計算可得林鍾值為<code>601</code>，並且新的黃鐘能夠還原</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>林鍾長六寸一釐，則從中呂還得黃鍾，十二旋宫，聲韻無失</p>
+</blockquote>
+<h2 id="算法源碼">算法源碼 </h2>
+<p></p><pre data-role="codeBlock" data-info="py" class="language-python py"><code><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># 律學相關算法</span>
+
+HUANGZHONG <span class="token operator">=</span> <span class="token number">900</span>    <span class="token comment"># 黃鐘管長度</span>
+PITCH_NAME <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'C♯'</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">,</span><span class="token string">'D♯'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">,</span><span class="token string">'F'</span><span class="token punctuation">,</span><span class="token string">'F♯'</span><span class="token punctuation">,</span><span class="token string">'G'</span><span class="token punctuation">,</span><span class="token string">'G♯'</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'A♯'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">]</span>    <span class="token comment"># 標準音名</span>
+PITCH_NAME_ZH <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'黃鐘'</span><span class="token punctuation">,</span><span class="token string">'大呂'</span><span class="token punctuation">,</span><span class="token string">'太簇'</span><span class="token punctuation">,</span><span class="token string">'夾鐘'</span><span class="token punctuation">,</span><span class="token string">'姑冼'</span><span class="token punctuation">,</span><span class="token string">'中呂'</span><span class="token punctuation">,</span><span class="token string">'蕤賓'</span><span class="token punctuation">,</span><span class="token string">'林鐘'</span><span class="token punctuation">,</span><span class="token string">'夷則'</span><span class="token punctuation">,</span><span class="token string">'南呂'</span><span class="token punctuation">,</span><span class="token string">'無射'</span><span class="token punctuation">,</span><span class="token string">'應鐘'</span><span class="token punctuation">]</span>   <span class="token comment"># 十二律音名</span>
+
+SANFENSUNYI_TO_EQUAL_ORDER <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment"># 五度相生順序</span>
+MILV <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">12</span><span class="token punctuation">)</span>  <span class="token comment"># 朱載堉新法密律</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">sanfensunyi</span><span class="token punctuation">(</span>first_value<span class="token punctuation">,</span> times <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    中國古代三分損益法或畢達哥拉斯學派五度相生律，2/3 4/3輪換
+    first_value: 首音值
+    times: 計算執行次數，首音為第0次，不足一個八度的會補全
+    return: 計算後值的List[float]，以音名高低順序排列
+    '''</span>
+    result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> first_value
+        <span class="token keyword keyword-elif">elif</span> i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> last_value <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">/</span><span class="token number">3</span>   <span class="token comment"># 三分損一</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            this_value <span class="token operator">=</span> last_value <span class="token operator">*</span> <span class="token number">4</span><span class="token operator">/</span><span class="token number">3</span>   <span class="token comment"># 三分益一</span>
+        this_value <span class="token operator">=</span> octave_clamp<span class="token punctuation">(</span>this_value<span class="token punctuation">,</span> first_value<span class="token punctuation">)</span>  <span class="token comment"># 約束在一個八度內</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+        last_value <span class="token operator">=</span> this_value
+    <span class="token keyword keyword-return">return</span> _rearrange_list<span class="token punctuation">(</span>result<span class="token punctuation">,</span> SANFENSUNYI_TO_EQUAL_ORDER<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">hechengtian_xinlv</span><span class="token punctuation">(</span>first_value<span class="token punctuation">,</span> times <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    何承天新律，將三分損益法的黃鐘差值均分回十二音中
+    first_value: 首音值
+    times: 計算執行次數，首音為第0次，不足一個八度的會補全
+    return: 計算後值的List[float]，以音名高低順序排列
+    '''</span>
+    result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    sanfensunyi_result <span class="token operator">=</span> sanfensunyi<span class="token punctuation">(</span>first_value<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    sanfensunyi_result <span class="token operator">=</span> _rearrange_list<span class="token punctuation">(</span>sanfensunyi_result<span class="token punctuation">,</span> SANFENSUNYI_TO_EQUAL_ORDER<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment"># 三分損益計算順序還原</span>
+    delta <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>sanfensunyi_result<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span> <span class="token operator">-</span> sanfensunyi_result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 三分損益法差值</span>
+    add_value <span class="token operator">=</span> delta <span class="token operator">/</span> <span class="token number">12</span>  <span class="token comment"># 均分差值</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ori_value <span class="token operator">=</span> sanfensunyi_result<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token number">12</span><span class="token punctuation">]</span>
+        this_value <span class="token operator">=</span> ori_value <span class="token operator">+</span> add_value <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">12</span><span class="token punctuation">)</span>   <span class="token comment"># 差值補回十二律中</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> _rearrange_list<span class="token punctuation">(</span>result<span class="token punctuation">,</span> SANFENSUNYI_TO_EQUAL_ORDER<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">equal_temperament</span><span class="token punctuation">(</span>first_value<span class="token punctuation">,</span> times <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    朱載堉十二平均律
+    first_value: 首音值
+    times: 計算執行次數，首音為第0次
+    return: 計算後值的List[float]，以音名高低順序排列
+    '''</span>
+    result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        this_value <span class="token operator">=</span> first_value <span class="token operator">*</span> <span class="token punctuation">(</span>MILV <span class="token operator">**</span> i<span class="token punctuation">)</span>
+        this_value <span class="token operator">=</span> octave_clamp<span class="token punctuation">(</span>this_value<span class="token punctuation">,</span> first_value<span class="token punctuation">)</span>  <span class="token comment"># 約束在一個八度內</span>
+        result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>this_value<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> result
+
+<span class="token keyword keyword-def">def</span> <span class="token function">output_list</span><span class="token punctuation">(</span>list_value<span class="token punctuation">,</span> list_name<span class="token punctuation">,</span> order_equal <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    輸出結果，匹配音名
+    list_value: 使用律學算法計算出的List[float]
+    list_name: 音名字符串列表
+    order_equal: 是否按音名高低順序排列，否則按五度相生順序排列
+    return: 結果字符串
+    '''</span>
+    result <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> order_equal<span class="token punctuation">:</span> <span class="token comment"># 使用五度相生順序排列</span>
+        list_value <span class="token operator">=</span> _rearrange_list<span class="token punctuation">(</span>list_value<span class="token punctuation">,</span> SANFENSUNYI_TO_EQUAL_ORDER<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+        list_name <span class="token operator">=</span> _rearrange_list<span class="token punctuation">(</span>list_name<span class="token punctuation">,</span> SANFENSUNYI_TO_EQUAL_ORDER<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> i<span class="token punctuation">,</span> value <span class="token keyword keyword-in">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>list_value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> value <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-continue">continue</span>
+        name <span class="token operator">=</span> list_name<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token builtin">len</span><span class="token punctuation">(</span>list_name<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        result <span class="token operator">+=</span> <span class="token string-interpolation"><span class="token string">f'[</span><span class="token interpolation"><span class="token punctuation">{</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span><span class="token string">]</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+    <span class="token keyword keyword-return">return</span> result
+
+<span class="token keyword keyword-def">def</span> <span class="token function">_rearrange_list</span><span class="token punctuation">(</span>list_raw<span class="token punctuation">,</span> order<span class="token punctuation">,</span> is_forward <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    按列表下標指定位置分段重新排序，如[a,b,c]以[3,1,2]的規則排序，則變為[b,c,a]
+    使用相同的order，可以還原排序前的列表
+    list_raw: 原list
+    order: 分段排序規則，如果list長度不足一個排序規則的長度，則自動補0
+    is_forward: 重新排序為True，還原排序為False
+    return: 排序後的新列表
+    '''</span>
+    result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    block_size <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span>
+    blocks <span class="token operator">=</span> <span class="token punctuation">[</span>
+        list_raw<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i<span class="token operator">+</span>block_size<span class="token punctuation">]</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>list_raw<span class="token punctuation">)</span><span class="token punctuation">,</span> block_size<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword keyword-if">if</span> is_forward<span class="token punctuation">:</span>  <span class="token comment"># 正向處理</span>
+        using_order <span class="token operator">=</span> order
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>   <span class="token comment"># 逆向還原</span>
+        using_order <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> block_size
+        <span class="token keyword keyword-for">for</span> idx<span class="token punctuation">,</span> pos <span class="token keyword keyword-in">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            using_order<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">=</span> idx
+    <span class="token keyword keyword-for">for</span> block <span class="token keyword keyword-in">in</span> blocks<span class="token punctuation">:</span>
+        new_block <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> block_size
+        <span class="token keyword keyword-for">for</span> idx<span class="token punctuation">,</span> pos <span class="token keyword keyword-in">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>using_order<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                new_block<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">=</span> block<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
+            <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+                new_block<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>  <span class="token comment"># 找不到的元素默認填充None</span>
+        result<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>new_block<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> result
+
+<span class="token keyword keyword-def">def</span> <span class="token function">octave_clamp</span><span class="token punctuation">(</span>this_value<span class="token punctuation">,</span> first_value<span class="token punctuation">,</span> is_add <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    八度約束，使新的音在首音所在八度之內
+    this_value: 當前值
+    first_value: 首音數值
+    is_add: 八度範圍為[first_value, first_value * 2]，否則為[first_value / 2, first_value]
+    return: 約束後的新值
+    '''</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>is_add<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        min_value <span class="token operator">=</span> first_value
+        max_value <span class="token operator">=</span> first_value <span class="token operator">*</span> <span class="token number">2</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        min_value <span class="token operator">=</span> first_value <span class="token operator">/</span> <span class="token number">2</span>
+        max_value <span class="token operator">=</span> first_value
+    
+    <span class="token keyword keyword-if">if</span> this_value <span class="token operator">&lt;</span> min_value<span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> this_value <span class="token operator">*</span> <span class="token number">2</span>
+    <span class="token keyword keyword-elif">elif</span> this_value <span class="token operator">&gt;</span> max_value<span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> this_value <span class="token operator">/</span> <span class="token number">2</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> this_value
+
+<span class="token keyword keyword-if">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'三分損益法'</span><span class="token punctuation">)</span>
+    list_value <span class="token operator">=</span> sanfensunyi<span class="token punctuation">(</span>HUANGZHONG<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    list_str <span class="token operator">=</span> output_list<span class="token punctuation">(</span>list_value<span class="token punctuation">,</span> PITCH_NAME_ZH<span class="token punctuation">,</span> order_equal <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>  <span class="token comment"># 五度相生排列</span>
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>list_str<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'何承天新律'</span><span class="token punctuation">)</span>
+    list_value <span class="token operator">=</span> hechengtian_xinlv<span class="token punctuation">(</span>HUANGZHONG<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    list_str <span class="token operator">=</span> output_list<span class="token punctuation">(</span>list_value<span class="token punctuation">,</span> PITCH_NAME_ZH<span class="token punctuation">,</span> order_equal <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>  <span class="token comment"># 五度相生排列</span>
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>list_str<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'十二平均律'</span><span class="token punctuation">)</span>
+    list_value <span class="token operator">=</span> equal_temperament<span class="token punctuation">(</span>HUANGZHONG<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    list_str <span class="token operator">=</span> output_list<span class="token punctuation">(</span>list_value<span class="token punctuation">,</span> PITCH_NAME_ZH<span class="token punctuation">)</span>
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>list_str<span class="token punctuation">)</span>
+</code></pre><p></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
