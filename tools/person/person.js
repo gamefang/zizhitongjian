@@ -1,7 +1,7 @@
 async function main() {
     // 初始化 Pyodide
     let pyodide = await loadPyodide({
-        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/",
+        indexURL: "../pyodide/",
     });
     const btn_run = document.getElementById("btn_run");
     const txt_input = document.getElementById("txt_input");
