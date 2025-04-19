@@ -3,7 +3,9 @@ export_on_save:
     html: true
 ---
 
-# 資治通鑑學習筆記
+<link rel="icon" href="history/asset/zztj32.svg" sizes="32x32">
+
+# ![icon32](history/asset/zztj32.svg)資治通鑑學習筆記
 
 > 基於數據製作的一些速查工具
 > [年號查詢](history/tools/era_name/era_name.html) | [人物總表查詢](history/tools/person/person.html)
