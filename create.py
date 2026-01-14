@@ -1,4 +1,4 @@
-import history.utils.csvtotable.convert as csvtotable   # csvtotable已內置
+from csvtotable.convert import convert
 import os
 
 CSV_FILES = [
@@ -12,9 +12,11 @@ r'1_數據表/1.2_政權年代表/魏晉南北朝.csv',
 
 r'1_數據表/1.3_各類通表/人物總表.csv',
 r'1_數據表/1.3_各類通表/年號總表.csv',
+
+r'3_專項研究/3.1_時代/南北朝/北魏改姓列表.csv'
 ]
 
-def convert_one(input_file):
+def convert_one(input_file: str):
     '''
     使用csvtotable轉化一個csv文件
     '''
@@ -34,8 +36,9 @@ def convert_one(input_file):
         "no_header": False,
         "export_options": ['copy']  # 搜索旁邊的按鈕
     }
-    html_content = csvtotable.convert(input_file, **kwargs)
-    csvtotable.save(output_file, html_content)
+    html_content = convert(input_file, **kwargs)
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(html_content)
     print(f'Converted: {output_file}')
 
 if __name__ == "__main__":
