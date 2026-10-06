@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    color: #333;
 }
 
 h2 {
@@ -8,20 +9,94 @@ h2 {
 }
 
 #txt_input {
-    padding: 5px;
+    padding: 6px 10px;
     font-size: 16px;
+    width: 280px;
 }
 
 #btn_run {
-    padding: 5px 10px;
+    padding: 6px 12px;
     font-size: 16px;
     cursor: pointer;
 }
 
 #txt_result {
     margin-top: 20px;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    white-space: pre-wrap; /* 保留换行符 */
+    min-height: 100px;
+}
+
+/* 說明文檔樣式 */
+.doc-text {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* 查詢結果區塊標題 */
+.result-title {
+    font-weight: bold;
+    margin: 10px 0 6px 0;
+    color: #222;
+}
+
+/* 多個結果條目卡片 */
+.result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    max-width: 600px;
+}
+
+.result-item:hover {
+    background-color: #f0f7ff;
+    border-color: #b3d4fc;
+}
+
+/* 詳情跳轉按鈕 */
+.btn-detail {
+    padding: 2px 8px;
+    font-size: 13px;
+    color: #0066cc;
+    background-color: #eef5ff;
+    border: 1px solid #cce0ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-detail:hover {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+/* 詳情資料表格 */
+.detail-table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background-color: #fff;
+}
+
+.detail-table th, .detail-table td {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.detail-table th {
+    background-color: #f2f2f2;
+    width: 120px;
+    white-space: nowrap;
+}
+
+.no-data {
+    color: #777;
 }

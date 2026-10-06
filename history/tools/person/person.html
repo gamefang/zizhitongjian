@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
     <link rel="icon" href="../../asset/zztj32.svg" sizes="32x32">
 </head>
 <body>
-    
     <p><a href="../../../index.html"><img src="../../asset/zztj32.svg" height="16">返回首頁</a></p>
 
     <h2>人物總表查詢工具</h2>
@@ -16,10 +15,10 @@
     <p>實現<a href="../../../1_數據表/1.3_各類通表/人物總表.html">人物總表</a>內的查詢功能。<br/>
     輸入空值可查看說明。</p>
     
-    <input type="text" id="txt_input" placeholder="輸入查詢指令">
+    <input type="text" id="txt_input" placeholder="輸入查詢指令" autofocus autocomplete="off">
     <button id="btn_run">查詢</button><br><br>
 
-    <pre id="txt_result"></pre>
+    <div id="txt_result"></div>
 
     <script src="../../utils/pyodide/pyodide.js"></script>
     <script src="person.js"></script>
